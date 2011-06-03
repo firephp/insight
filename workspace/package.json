@@ -1,0 +1,21 @@
+{
+    "name": "firephp",
+    "engine": [
+        "node"
+    ],
+    "main": "lib/project.js",
+    "mappings": {
+        "nodejs": {
+            "id": "nodejs.org"
+        },
+        "pinf": {
+            "id": "pinf.org/loader"
+        },
+        "jsgi": {
+            "id": "github.com/kriszyp/jsgi-node/"
+        },
+        "connect": {
+            "id": "github.com/senchalabs/connect/"
+        }
+    }
+}
