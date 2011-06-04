@@ -61,6 +61,33 @@
                     }
                 }
             }
+        },
+        "github.com/pinf/modules-js/": {
+            "locator": {
+                "archive": "https://github.com/pinf/modules-js/zipball/master"
+            }
+        },
+        "github.com/kriskowal/q/": {
+            "locator": {
+                "archive": "https://github.com/kriskowal/q/zipball/v0.3.0"
+            },
+            "descriptor": {
+                "uid": "https://github.com/kriskowal/q/",
+                "dependencies": [
+                    {
+                        "id": "github.com/pinf/modules-js/"
+                    }
+                ]
+            }
+        },
+        "github.com/cadorn/markdown-js/": {
+            "locator": {
+                "archive": "https://github.com/cadorn/markdown-js/zipball/master",
+                "descriptor": {
+                    "uid": "https://github.com/cadorn/markdown-js/",
+                    "native": true
+                }
+            }            
         }
     }
 }

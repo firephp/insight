@@ -16,6 +16,12 @@
         },
         "connect": {
             "id": "github.com/senchalabs/connect/"
+        },
+        "modules": {
+            "id": "github.com/pinf/modules-js/"
+        },
+        "markdown": {
+            "id": "github.com/cadorn/markdown-js/"
         }
     }
 }

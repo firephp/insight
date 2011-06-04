@@ -22,6 +22,9 @@ Development
     cd firephp
     commonjs -v ./
 
+    // force internal modules to be reloaded with every request
+    commonjs -v ./ --reloading
+
 
 Support & Feedback
 ==================
