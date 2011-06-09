@@ -9,6 +9,11 @@
                 "location": "./"
             }
         },
+        "github.com/pinf/docs-js/": {
+            "locator": {
+                "archive": "https://github.com/pinf/docs-js/zipball/master"
+            }
+        },
         "nodejs.org": {
             "provider": "nodejs.org"
         },
@@ -84,10 +89,33 @@
             "locator": {
                 "archive": "https://github.com/cadorn/markdown-js/zipball/master",
                 "descriptor": {
-                    "uid": "https://github.com/cadorn/markdown-js/",
-                    "native": true
+                    "uid": "https://github.com/cadorn/markdown-js/"
                 }
             }            
+        },
+        "alexgorbatchev.com/SyntaxHighlighter/": {
+            "locator": {
+                "archive": "https://bitbucket.org/alexg/syntaxhighlighter/get/3.0.83.zip",
+                "resource": true
+            },
+            "descriptor": {
+                "uid": "http://alexgorbatchev.com/SyntaxHighlighter/",
+                "directories": {
+                    "lib": "scripts"
+                }
+            }
+        },
+        "jqueryui.com/": {
+            "locator": {
+                "archive": "http://jqueryui.com/download/jquery-ui-1.8.13.custom.zip",
+                "resource": true
+            },
+            "descriptor": {
+                "uid": "http://jqueryui.com/",
+                "directories": {
+                    "lib": "js"
+                }
+            }
         }
     }
 }

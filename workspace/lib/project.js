@@ -1,6 +1,6 @@
 
 var host = "localhost",
-    port = 8003;
+    port = 8004;
 
 var CONNECT = require("connect/connect"),
     PATH = require("nodejs/path"),
@@ -20,18 +20,29 @@ exports.main = function(options)
             FORCE_RELOAD = true;
         }
     }
-    
     module.print("\n\0cyan(\0bold(Welcome to the project server for the FirePHP project!\0)\0)\n\n");
     module.print("\0yellow(\0bold(Use your browser to navigate to: " + "http://" + host + ":" + port + "/" + "\0)\0)\n\n");
 
     CONNECT()
-        .use('/docs/fetch', jsgi(
+        .use('/programs/docs', jsgi(new PROGRAM_SERVER.JSGI({
+            api: {
+                PROMISE: PROMISE
+            },
+            map: {
+                "/programs/docs.js": {
+                    programPath: PATH.dirname(PATH.dirname(require.pkg("docs").id("jsgi"))) + "/programs/docs-client/program.json"
+                }
+            },
+            trackRoutes: true
+        }).responder(null)))
+        .use('/docs/', jsgi(
             reloadingApp(function(callback)
             {
-                module.load(require.id("./jsgi/docs", true), function(id)
+                module.load(require.pkg("docs").id("jsgi", true), function(id)
                 {
                     callback(require(id).app(null, {
-                        rootPath: PATH.dirname(PATH.dirname(PATH.dirname(module.id))) + "/docs"
+                        rootPath: PATH.dirname(PATH.dirname(PATH.dirname(module.id))) + "/docs",
+                        programBaseUrl: "http://" + host + ":" + port + "/programs/docs/"
                     }));
                 });
             })
@@ -107,7 +118,11 @@ var jsgi = function jsgi(app, options)
                             res.setHeader(name, data.headers[name]);
                         }
                     }
-                    res.end(data.body.join(""));
+                    // TODO: Detect binary encoding better than with binaryBody
+                    if (data.body.length === 1)
+                        res.end(data.body[0], ((data.binaryBody)?"binary":void 0));
+                    else
+                        res.end(data.body.join(""), ((data.binaryBody)?"binary":void 0));
                 }
                 data.then(
                     handle,
@@ -136,7 +151,11 @@ var jsgi = function jsgi(app, options)
                         res.setHeader(name, data.headers[name]);
                     }
                 }
-                res.end(data.body.join(""));
+                // TODO: Detect binary encoding better than with binaryBody
+                if (data.body.length === 1)
+                    res.end(data.body[0], ((data.binaryBody)?"binary":void 0));
+                else
+                    res.end(data.body.join(""), ((data.binaryBody)?"binary":void 0));
             }
         }
         else

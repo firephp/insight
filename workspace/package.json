@@ -11,6 +11,9 @@
         "pinf": {
             "id": "pinf.org/loader"
         },
+        "docs": {
+            "id": "github.com/pinf/docs-js/"
+        },
         "jsgi": {
             "id": "github.com/kriszyp/jsgi-node/"
         },

@@ -1,7 +1,7 @@
 FirePHP 1.0
 ===========
 
-Status: dev
+**Status: dev**
 
 This project contains the FirePHP 1.0 PHP server library and provides a development environment for working on FirePHP. 
 
