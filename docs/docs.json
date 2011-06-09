@@ -1,0 +1,72 @@
+{
+    "project": {
+        "title": "FirePHP 1.0",
+        "author": {
+            "name": "Christoph Dorn",
+            "url": "http://www.christophdorn.com/"
+        },
+        "license": "CC-BY-NC-SA"
+    },
+    "icons": {
+        "64x64": "/images/FirePHP_64.png"
+    },
+    "menu": [
+        {
+            "label": "Welcome",
+            "path": "/Welcome.md"
+        },
+        {
+            "label": "Introduction",
+            "path": "/Introduction.md"
+        },
+        {
+            "label": "Examples",
+            "path": "/Examples.md"
+        },
+        {
+            "label": "Quickstart",
+            "path": "/Quickstart.md"
+        },
+        {
+            "label": "Tutorials",
+            "path": "/Tutorials.md"
+        },
+        {
+            "label": "Install",
+            "path": "/Install.md",
+            "children": [
+                {
+                    "label": "Download",
+                    "path": "/Install.md",
+                    "bookmark": "download"
+                },
+                {
+                    "label": "Include",
+                    "path": "/Install.md",
+                    "bookmark": "include"
+                },
+                {
+                    "label": "Configure",
+                    "path": "/Install.md",
+                    "bookmark": "configure"
+                }
+            ]
+        },
+        {
+            "label": "API",
+            "path": "/API.md"
+        },
+        {
+            "label": "Workflow",
+            "path": "/Workflow.md"
+        },
+        {
+            "label": "FAQ",
+            "path": "/FAQ.md"
+        },
+        {
+            "label": "Open Source",
+            "path": "/OpenSource.md"
+        }
+    ]
+}
