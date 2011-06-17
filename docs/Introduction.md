@@ -2,9 +2,13 @@
 Summary
 =======
 
-[FirePHP](http://www.firephp.org/) is a PHP library that integrates a variety of development tools
+[FirePHP][1] is a PHP library that integrates a variety of development tools
 and combines error reporting and print debugging with console logging to aid in PHP application development.
-Traditionally *FirePHP* has been used to only log from PHP to the [Firebug](http://getfirebug.com/) [Console](http://getfirebug.com/commandline).
+Traditionally *FirePHP* has been used to only log from PHP to the [Firebug][2] [Console][3].
+
+[1]: http://www.firephp.org/
+[2]: http://getfirebug.com/
+[3]: http://getfirebug.com/commandline
 
 
 PHP debugging approaches

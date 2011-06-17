@@ -1,90 +1,93 @@
 
-    <h1>FirePHP 1.0+</h1>
+FirePHP 1.0+
+============
     
-    <p>Since <a href="../Introduction/">FirePHP 1.0</a> the <i>FirePHP Project's</i> sole focus is on the <a href="../Install/">FirePHP Server Library</a>.
-    To support <i>FirePHP</i> on the client the <a target="_blank" href="http://www.developercompanion.com/">DeveloperCompanion Firefox Extension</a> is used.
-    The tutorials below were written in the context of these two components and show how to use the <i>FirePHP Server Library</i> with the <i>DeveloperCompanion Extension</i> (Some tutorials were written against an earlier preview of DeveloperCompanion).</p>
+Since [FirePHP 1.0](Introduction) the *FirePHP Project's* sole focus is on the [FirePHP Server Library](Install).
+To support *FirePHP* on the client the [DeveloperCompanion Firefox Extension](http://www.developercompanion.com/) is used.
+The tutorials below were written in the context of these two components and show how to use
+the *FirePHP Server Library* with the *DeveloperCompanion Extension* (Some tutorials were written
+against an earlier preview of DeveloperCompanion).
 
-    <h3>Introductory</h3>
+Introductory
+------------
+
+  * [FirePHP 1.0 in 5 Steps](http://www.christophdorn.com/Blog/2010/11/29/firephp-1-0-in-5-steps/) (www.christophdorn.com)
+  * [Upgrading to FirePHP 1.0](http://upgrade.firephp.org/) (upgrade.firephp.org)
+  * [Jan 2011 - Zend Server + FirePHP on AWS](http://www.christophdorn.com/Blog/2011/01/06/zend-server-firephp-on-aws/) (www.christophdorn.com)
+  * [Dec 2010 - FirePHP on Magenting](http://www.christophdorn.com/Blog/2010/12/17/firephp-on-magenting/) (www.christophdorn.com)
+
+Advanced
+--------
+
+  * [Oct 2010 - TIP: FirePHP data volume filtering](http://www.christophdorn.com/Blog/2010/10/15/tip-firephp-data-volume-filtering/) (www.christophdorn.com)
+  * [Aug 2010 - Gain insight into your cache interaction with FirePHP Companion](http://www.christophdorn.com/Blog/2010/08/24/gain-insight-into-your-cache-interaction-with-firephp-companion/) (www.christophdorn.com)
+  * [Aug 2010 - Introducing FirePHP Companion](http://www.christophdorn.com/Blog/2010/08/20/introducing-firephp-companion/) (www.christophdorn.com)
     
-    <ul>
-        <li><a target="_blank" href="http://www.christophdorn.com/Blog/2010/11/29/firephp-1-0-in-5-steps/">FirePHP 1.0 in 5 Steps</a> (www.christophdorn.com)</li>
-        <li><a target="_blank" href="http://upgrade.firephp.org/">Upgrading to FirePHP 1.0</a> (upgrade.firephp.org)</li>
-        <li><a target="_blank" href="http://www.christophdorn.com/Blog/2011/01/06/zend-server-firephp-on-aws/">Jan 2011 - Zend Server + FirePHP on AWS</a> (www.christophdorn.com)</li>
-        <li><a target="_blank" href="http://www.christophdorn.com/Blog/2010/12/17/firephp-on-magenting/">Dec 2010 - FirePHP on Magenting</a> (www.christophdorn.com)</li>
-    </ul>
-
-    <h3>Advanced</h3>
-
-    <ul>
-        <li><a target="_blank" href="http://www.christophdorn.com/Blog/2010/10/15/tip-firephp-data-volume-filtering/">Oct 2010 - TIP: FirePHP data volume filtering</a> (www.christophdorn.com)</li>
-        <li><a target="_blank" href="http://www.christophdorn.com/Blog/2010/08/24/gain-insight-into-your-cache-interaction-with-firephp-companion/">Aug 2010 - Gain insight into your cache interaction with FirePHP Companion</a> (www.christophdorn.com)</li>
-        <li><a target="_blank" href="http://www.christophdorn.com/Blog/2010/08/20/introducing-firephp-companion/">Aug 2010 - Introducing FirePHP Companion</a> (www.christophdorn.com)</li>
-    </ul>
-
-
-    <h1>FirePHP < 1.0</h1>
+FirePHP < 1.0
+=============
     
-    <p>Before <a href="../Introduction/">FirePHP 1.0</a> the <i>FirePHP Project</i> consistend of the
-    <a target="_blank" href="http://www.firephp.org/HQ/Install.htm">FirePHPCore Server Library</a> and
-    the <a target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/6149/">FirePHP Firefox Extension</a>.
-    The tutorials below were written in the context of these two components and show how to use the <i>FirePHPCore
-    Server Library</i> with the <i>FirePHP Firefox Extension</i>.</p>
-
-    <p class="note">Instead of using the <i>FirePHPCore</i> library you can also use the new <a href="../Install/">FirePHP 1.0</a> release
-    which includes the <i>FirePHPCore</i> files. This will provide you with an easy
-    <a target="_blank" href="http://upgrade.firephp.org/">upgrade path</a> to the new <a href="../API/">Insight API</a>.</p>
-
-    <p class="note">Instead of the <i>FirePHP Firefox Extension</i> you can also use the
-    new <a target="_blank" href="http://www.developercompanion.com/">DeveloperCompanion
-    Firefox Extension</a> on the client which is 100% backwards compatible with the <i>FirePHPCore Server
-    Library</i> and fully compatible with the <i>FirePHP 1.0</i> library.
-    This is actually <b>recommended</b> as the new extension fixes many issues.</p>
-
-    <h3>Introductory</h3>
-
-    <ul>
-        <li><a target="_blank" href="http://www.firephp.org/HQ/Install.htm">Installing and using FirePHPCore</a> (www.firephp.org)</li>
-        <li><a target="_blank" href="http://sixrevisions.com/web-development/how-to-debug-php-using-firefox-with-firephp/">Jul 2010 - How to Debug PHP Using Firefox with FirePHP</a> (sixrevisions.com)</li>
-        <li><a target="_blank" href="http://yensdesign.com/2008/10/how-to-debug-php-code/">Oct 2008 - How to debug PHP code</a> (yensdesign.com)</li>
-    </ul>
-
-    <h3>Framework Integrations</h3>
-
-    <p>There is a <a target="_blank" href="http://www.firephp.org/Wiki/Libraries/FirePHPCore">large list of third party components and tutorials</a> for integrationg <i>FirePHP</i> into popular frameworks.</p>
-
-    <h3>Advanced</h3>
-
-    <ul>
-        <li><a target="_blank" href="http://www.christophdorn.com/Blog/2010/10/15/tip-firephp-data-volume-filtering/">Oct 2010 - TIP: FirePHP data volume filtering</a> (www.christophdorn.com)</li>
-        <li><a target="_blank" href="http://sixrevisions.com/web-development/a-guide-on-advanced-logging-and-benchmarking-with-firephp/">Aug 2010 - A Guide on Advanced Logging and Benchmarking with FirePHP</a> (sixrevisions.com)</li>
-        <li><a target="_blank" href="http://britg.com/2009/06/16/nginx-proxies-with-firephp/">Jun 2009 - Nginx proxies with FirePHP</a> (britg.com)</li>
-        <li><a target="_blank" href="http://www.christophdorn.com/Blog/2009/04/03/how-to-integrate-firephp-for-ajax-development/">Apr 2009 - Integrating FirePHP for Ajax Development</a> (www.christophdorn.com)</li>
-        <li><a target="_blank" href="http://www.christophdorn.com/Blog/2009/04/01/firephp-for-zend-server/">Apr 2009 - FirePHP for Zend Server</a> (www.christophdorn.com)</li>
-    </ul>
+Before [FirePHP 1.0](Introduction) the *FirePHP Project* consisted of the
+[FirePHPCore Server Library](http://www.firephp.org/HQ/Install.htm) and the 
+[FirePHP Firefox Extension](https://addons.mozilla.org/en-US/firefox/addon/6149/). The tutorials below were
+written in the context of these two components and show how to use the *FirePHPCore Server Library* with the *FirePHP Firefox Extension*.
 
 
-    <h1>Zend Framework</h1>
-    
-    <p><i>Zend Framework</i> includes native <i>FirePHP</i> support since version 1.6. This means you can log to a <i>FirePHP Client</i> directly using
-    <i>Zend Framework Components</i> without needing another <i>FirePHP Server Library</i>. On the client use the <a target="_blank" href="http://www.developercompanion.com/">DeveloperCompanion Firefox Extension</a> (preferred) or the <a target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/6149/">FirePHP Firefox Extension</a>.</p>
+NOTE: Instead of using the *FirePHPCore* library you can also use the new [FirePHP 1.0](Install) a release
+    which includes the *FirePHPCore* files. This will provide you with an easy [upgrade path](http://upgrade.firephp.org)
+    to the new [Insight API](API)
 
-    <h3>Introductory</h3>
 
-    <ul>
-        <li><a target="_blank" href="http://www.phpriot.com/articles/zend-log/5">Apr 2009 - Zend Framework 101: Zend_Log</a> (www.phpriot.com)</li>
-        <li><a target="_blank" href="http://blog.andrewhavens.com/2009/02/26/setting-up-logging-with-firephpfirebug-in-zend-framework-175/">Feb 2009 - Setting up logging with Firebug and FirePHP in Zend Framework 1.7.5</a> (blog.andrewhavens.com)</li>
-        <li><a target="_blank" href="http://www.oneangrydwarf.co.uk/web/logging-with-zend-framework-and-firephp/">Feb 2009 - Logging with Zend Framework and FirePHP</a> (www.oneangrydwarf.co.uk)</li>
-        <li><a target="_blank" href="http://www.christophdorn.com/Blog/2008/10/14/profiling-queries-with-zend_db_profiler_firebug/">Oct 2008 - Profiling queries with Zend_Db_Profiler_Firebug</a> (www.christophdorn.com)</li>
-        <li><a target="_blank" href="http://www.christophdorn.com/Blog/2008/09/02/firephp-and-zend-framework-16/">Sep 2008 - FirePHP and Zend Framework 1.6</a> (www.christophdorn.com)</li>
-    </ul>
+NOTE: Instead of the *FirePHP Firefox Extension* you can also use the
+    new [DeveloperCompanion Firefox Extension](http://www.developercompanion.com) on the client which is 100% backwards compatible with the *FirePHPCore Server
+    Library* and fully compatible with the *FirePHP 1.0* library. This is actually **recommended** as the new extension fixes many issues.
 
-    <h3>Advanced</h3>
 
-    <ul>
-        <li><a target="_blank" href="http://www.mrclay.org/2011/01/25/simpler-api-for-zends-built-in-firebug-logger/">Jan 2011 - Simpler API for Zend’s built-in Firebug Logger</a> (www.mrclay.org)</li>        
-        <li><a target="_blank" href="http://www.christophdorn.com/Blog/2010/10/15/tip-firephp-data-volume-filtering/">Oct 2010 - TIP: FirePHP data volume filtering</a> (www.christophdorn.com)</li>
-        <li><a target="_blank" href="http://www.zendcasts.com/custom-action-helpers-for-firebug/2009/08/">Aug 2009 - Screencast: Custom Action Helpers for Firebug (2/2)</a> (www.zendcasts.com)</li>
-        <li><a target="_blank" href="http://www.zendcasts.com/debugging-zend-projects-with-firebug/2009/08/">Aug 2009 - Screencast: Debugging Zend Projects with Firebug (1/2)</a> (www.zendcasts.com)</li>
-        <li><a target="_blank" href="http://taat.pl/article/zend_framework_tutorial/step5/">Mar 2009 - Debugging and database profiling with FirePHP and Zend Framework 1.7 + Doctrine</a> (taat.pl)</li>
-    </ul>
+Introductory
+------------
+
+  * [Installing and using FirePHPCore](http://www.firephp.org/HQ/Install.htm) (www.firephp.org)
+  * [Jul 2010 - How to Debug PHP Using Firefox with FirePHP](http://sixrevisions.com/web-development/how-to-debug-php-using-firefox-with-firephp)(sixrevisions.com)
+  * [Oct 2008 - How to debug PHP code](http://yensdesign.com/2008/10/how-to-debug-php-code/)(yensdesign.com)
+   
+
+Framework Integrations
+----------------------
+
+There is a [large list of third party components and tutorials](http://www.firephp.org/Wiki/Libraries/FirePHPCore) for integrationg *FirePHP* into popular frameworks.
+
+Advanced
+--------
+
+  * [Oct 2010 - TIP: FirePHP data volume filtering](http://www.christophdorn.com/Blog/2010/10/15/tip-firephp-data-volume-filtering/) (www.christophdorn.com)
+  * [Aug 2010 - A Guide on Advanced Logging and Benchmarking with FirePHP](http://sixrevisions.com/web-development/a-guide-on-advanced-logging-and-benchmarking-with-firephp/) (sixrevisions.com)
+  * [Jun 2009 - Nginx proxies with FirePHP](http://britg.com/2009/06/16/nginx-proxies-with-firephp/) (britg.com)
+  * [Apr 2009 - Integrating FirePHP for Ajax Development](http://www.christophdorn.com/Blog/2009/04/03/how-to-integrate-firephp-for-ajax-development/) (www.christophdorn.com)
+  * [Apr 2009 - FirePHP for Zend Server](http://www.christophdorn.com/Blog/2009/04/01/firephp-for-zend-server/) (www.christophdorn.com)
+   
+
+Zend Framework
+==============
+
+*Zend Framework* includes native *FirePHP* support since version 1.6. This means you can log to a *FirePHP Client* directly using
+*Zend Framework Components* without needing another *FirePHP Server Library*. On the client use the [DeveloperCompanion Firefox Extension](http://www.developercompanion.com/) 
+(preferred) or the [FirePHP Firefox Extension](https://addons.mozilla.org/en-US/firefox/addon/6149/").
+
+Introductory
+------------
+
+  * [Apr 2009 - Zend Framework 101: Zend_Log](http://www.phpriot.com/articles/zend-log/5) (www.phpriot.com)
+  * [Feb 2009 - Setting up logging with Firebug and FirePHP in Zend Framework 1.7.5](http://blog.andrewhavens.com/2009/02/26/setting-up-logging-with-firephpfirebug-in-zend-framework-175/) (blog.andrewhavens.com)
+  * [Feb 2009 - Logging with Zend Framework and FirePHP](http://www.oneangrydwarf.co.uk/web/logging-with-zend-framework-and-firephp/) (www.oneangrydwarf.co.uk)
+  * [Oct 2008 - Profiling queries with Zend_Db_Profiler_Firebug](http://www.christophdorn.com/Blog/2008/10/14/profiling-queries-with-zend_db_profiler_firebug/) (www.christophdorn.com)
+  * [Sep 2008 - FirePHP and Zend Framework 1.6](http://www.christophdorn.com/Blog/2008/09/02/firephp-and-zend-framework-16/) (www.christophdorn.com)
+   
+
+Advanced
+--------
+
+  * [Jan 2011 - Simpler API for Zend’s built-in Firebug Logger](http://www.mrclay.org/2011/01/25/simpler-api-for-zends-built-in-firebug-logger/) (www.mrclay.org)       
+  * [Oct 2010 - TIP: FirePHP data volume filtering](http://www.christophdorn.com/Blog/2010/10/15/tip-firephp-data-volume-filtering/) (www.christophdorn.com)
+  * [Aug 2009 - Screencast: Custom Action Helpers for Firebug (2/2)](http://www.zendcasts.com/custom-action-helpers-for-firebug/2009/08/) (www.zendcasts.com)
+  * [Aug 2009 - Screencast: Debugging Zend Projects with Firebug (1/2](http://www.zendcasts.com/debugging-zend-projects-with-firebug/2009/08/) (www.zendcasts.com)
+  * [Mar 2009 - Debugging and database profiling with FirePHP and Zend Framework 1.7 + Doctrine](http://taat.pl/article/zend_framework_tutorial/step5/) (taat.pl)
+  
