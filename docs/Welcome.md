@@ -3,6 +3,4 @@ Welcome
 
 Welcome to FirePHP.
 
-[/Introduction](Introduction)
-
-
+[Introduction](/Introduction)
