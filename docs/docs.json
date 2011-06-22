@@ -1,72 +1,128 @@
 {
-    "project": {
-        "title": "FirePHP 1.0",
-        "author": {
-            "name": "Christoph Dorn",
-            "url": "http://www.christophdorn.com/"
-        },
-        "license": "CC-BY-NC-SA"
-    },
-    "icons": {
-        "64x64": "/images/FirePHP_64.png"
-    },
-    "menu": [
-        {
-            "label": "Welcome",
-            "path": "/Welcome.md"
-        },
-        {
-            "label": "Introduction",
-            "path": "/Introduction.md"
-        },
-        {
-            "label": "Examples",
-            "path": "/Examples.md"
-        },
-        {
-            "label": "Quickstart",
-            "path": "/Quickstart.md"
-        },
-        {
-            "label": "Tutorials",
-            "path": "/Tutorials.md"
-        },
-        {
-            "label": "Install",
-            "path": "/Install.md",
-            "children": [
+    "implements": {
+        "github.com/pinf/docs-js/-meta/config/0.1": {
+            "project": {
+                "title": "FirePHP 1.0",
+                "author": {
+                    "name": "Christoph Dorn",
+                    "url": "http://www.christophdorn.com/"
+                },
+                "license": "CC-BY-NC-SA"
+            },
+            "style": "/resources/style.css",
+            "icons": {
+                "64x64": "/resources/images/FirePHP_64.png"
+            },
+            "menu": [
                 {
-                    "label": "Download",
-                    "path": "/Install.md",
-                    "bookmark": "download"
+                    "label": "Welcome",
+                    "path": "/Welcome.md"
                 },
                 {
-                    "label": "Include",
-                    "path": "/Install.md",
-                    "bookmark": "include"
+                    "label": "About",
+                    "path": "/About.md"
                 },
                 {
-                    "label": "Configure",
+                    "label": "Introduction",
+                    "path": "/Introduction.md"
+                },
+                {
+                    "label": "Quickstart",
+                    "path": "/Quickstart.md"
+                },
+                {
+                    "label": "Install",
                     "path": "/Install.md",
-                    "bookmark": "configure"
+                    "children": [
+                        {
+                            "label": "Overview",
+                            "path": "/Install.md"
+                        },
+                        {
+                            "label": "Clients",
+                            "path": "/Clients.md"
+                        },
+                        {
+                            "label": "Download",
+                            "path": "/Download.md"
+                        },
+                        {
+                            "label": "Configure: constants",
+                            "path": "/Configuration/Constants.md"
+                        },
+                        {
+                            "label": "Configure: files",
+                            "path": "/Configuration/Files.md"
+                        },
+                        {
+                            "label": "Advanced Configuration",
+                            "path": "/Configuration/Advanced.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "API Reference",
+                    "path": "/API/Overview.md",
+                    "children": [
+                        {
+                            "label": "Overview",
+                            "path": "/API/Overview.md"
+                        },
+                        {
+                            "label": "Insight",
+                            "path": "/API/Insight.md"
+                        },
+                        {
+                            "label": "FirePHP",
+                            "path": "/API/FirePHP.md"
+                        }
+                    ]
+                },
+                {
+                    "label": "Workflow",
+                    "path": "/Workflow.md"
+                },
+                {
+                    "label": "Tutorials",
+                    "path": "/Tutorials.md"
+                },
+                {
+                    "label": "Examples",
+                    "path": "/Examples.md"
+                },
+                {
+                    "label": "Integrations",
+                    "path": "/Integrations.md"
+                },
+                {
+                    "label": "FAQ",
+                    "path": "/FAQ.md"
+                },
+                {
+                    "label": "Open Source",
+                    "path": "/OpenSource.md",
+                    "children": [
+                        {
+                            "label": "Support",
+                            "path": "/OpenSource.md",
+                            "bookmark": "support"
+                        },
+                        {
+                            "label": "Extend",
+                            "path": "/Extending.md"
+                        },
+                        {
+                            "label": "Protocols",
+                            "path": "/Protocols.md"
+                        },
+                        {
+                            "label": "Contribute",
+                            "path": "/OpenSource.md",
+                            "bookmark": "contribute"
+                        }
+                    ]
                 }
             ]
-        },
-        {
-            "label": "API",
-            "path": "/API.md"
-        },
-        {
-            "label": "Workflow",
-            "path": "/Workflow.md"
-        },
-        {
-            "label": "FAQ",
-            "path": "/FAQ.md"
-        },
-        {
-            "label": "Open Source",
-            "path": "/OpenSource.md"
         }
-    ]
+    }
 }
