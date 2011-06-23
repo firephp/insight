@@ -1,14 +1,8 @@
-
 Summary
 =======
 
-[FirePHP][1] is a PHP library that integrates a variety of development tools
-and combines error reporting and print debugging with console logging to aid in PHP application development.
-Traditionally *FirePHP* has been used to only log from PHP to the [Firebug][2] [Console][3].
-
-[1]: http://www.firephp.org/
-[2]: http://getfirebug.com/
-[3]: http://getfirebug.com/commandline
+**FirePHP is an advanced logging system that can display PHP variables in the browser as an application is navigated.** All communication
+is out of band to the application meaning that the logging data will not interfere with the normal functioning of the application.
 
 
 PHP debugging approaches
@@ -39,10 +33,10 @@ Traditional PHP debugging solutions have primarily focused on one debugging appr
 *Error Reporting* and *Print Statements* with *Logging* in an open architecture and protocol designed to
 support direct integration into debugging clients and integrated development environments.
 
-[DeveloperCompanion](http://www.developercompanion.com/) is a new client with full support for *FirePHP* and is being used
+[DeveloperCompanion](Clients#devcomp) is a new client with full support for *FirePHP* and is being used
 to pioneer a combined approach to debugging where relevant information is gathered from many sources, combined and presented in a uniform interface.
     
-NOTE: [DeveloperCompanion](http://www.developercompanion.com/) replaces the existing [FirePHP Extension](https://addons.mozilla.org/en-US/firefox/addon/6149/) to facilitate logging to the *Firebug Console*.
+NOTE: [DeveloperCompanion](Clients#devcomp) replaces the existing [FirePHP Extension](https://addons.mozilla.org/en-US/firefox/addon/6149/) to facilitate logging to the *Firebug Console*.
 
 PLANNED: The addition of [Xdebug](http://xdebug.org/) as a source of internal information is planned.
 
@@ -50,7 +44,7 @@ PLANNED: The addition of [Xdebug](http://xdebug.org/) as a source of internal in
 FirePHP History
 ===============
 
-*FirePHP* was first developed by [Christoph Dorn](http://www.christophdorn.com/) in 2007 and has since grown to 800,000+ downloads
+*FirePHP* was first developed by [Christoph Dorn](http://www.christophdorn.com/) in 2007 and has since grown to 900,000+ downloads
 and ~80,000 active daily users according to [Mozilla Add-ons](https://addons.mozilla.org/en-US/firefox/addon/6149/).
 
 Christoph still develops, maintains and supports *FirePHP* and is the primary sponsor of the project.
@@ -63,7 +57,7 @@ Many [frameworks have added FirePHP support](http://www.firephp.org/Wiki/Librari
 With the *1.0 Release* the project brings many new features and is shifting 100% of its focus to further developing the *Server Library* only while allowing
 any client that implements the appropriate open protocols to access the data and services the *FirePHP Server Library* provides.
 
-The first client to be fully compatible with the *1.0 Release* is [DeveloperCompanion](http://www.developercompanion.com/) which
+The first client to be fully compatible with the *1.0 Release* is [DeveloperCompanion](Clients#devcomp) which
 is designed to replace the *FirePHP Firefox Extension* for all users. An open-source client called [FireConsole](http://www.fireconsole.org/) is planned
 and will be released once the underlying open source libraries in *DeveloperCompanion* stabilize.
 
@@ -105,11 +99,11 @@ Example
     
     $console->log('Hello World');
 
-This example logs a *Hello World* message to the *Firebug Console*.
+This example logs a *Hello World* message to the [Firebug](http://getfirebug.com/) [Console](http://getfirebug.com/commandline).
 
 NOTE: See [Install](Install.md) for installation instructions.
 
-NOTE: See [API](API.md) for a complete reference of all API features.
+NOTE: See [API](API/Insight.md) for a complete reference of all API features.
 
 
 License
@@ -123,12 +117,14 @@ Composition
 
 The *FirePHP Server Library* combines components from several projects:
 
-  * [firephp-libs](http://github.com/cadorn/firephp-libs) - The home of the <i>FirePHP Server Library</i> that wraps all components
+  * [firephp-libs](http://github.com/cadorn/firephp-libs) - The home of the *FirePHP Server Library* that wraps all components
   * [wildfire](http://github.com/cadorn/wildfire) - The communication system
   * [insight](http://github.com/cadorn/insight) - The intelligence system
   * [Zend Framework](http://framework.zend.com/) - Several components are used
 
 See [Open Source](OpenSource.md) for more information.
+
+PLANNED: The *firephp-libs*, *wildfire* and *insight* projects will be reorganized soon.
 
 
 Support
@@ -146,4 +142,3 @@ You can follow *FirePHP* on twitter: [http://twitter.com/firephplib](http://twit
 
 In-depth *FirePHP* news and tutorials are available on Christoph's blog:
 [http://www.christophdorn.com/Blog/category/firephp/](http://www.christophdorn.com/Blog/category/firephp/)
-

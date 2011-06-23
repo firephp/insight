@@ -23,8 +23,8 @@
                     "path": "/About.md"
                 },
                 {
-                    "label": "Introduction",
-                    "path": "/Introduction.md"
+                    "label": "Features",
+                    "path": "/Features.md"
                 },
                 {
                     "label": "Quickstart",
@@ -110,6 +110,10 @@
                         {
                             "label": "Extend",
                             "path": "/Extending.md"
+                        },
+                        {
+                            "label": "Insight",
+                            "path": "/Insight.md"
                         },
                         {
                             "label": "Protocols",

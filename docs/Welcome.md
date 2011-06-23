@@ -1,7 +1,13 @@
+
+Welcome to the new official home of the FirePHP documentation.
+
+NOTE: Some external links to FirePHP information are still included as not everything has been consolidated here yet.
+
+
 Status
 ======
 
-FirePHP 1.0 is currently in public BETA and will go STABLE very soon. Your feedback is important to get us there.
+FirePHP 1.0 is currently in **public BETA** and will go STABLE very soon. Your [feedback](OpenSource#support) is important to get us there.
 
 
 FirePHP 1.0
@@ -51,7 +57,7 @@ development and debugging approach that combines the best of:
   * **Logging** - Deliberate logging to a file or other facility used to track events, execution flow and variables.
   * **Interactive Debugging** - PHP extension used by developer to directly interact with a running script to track live variable state.
 
-PLANNED: FirePHP integration with [xdebug](http://xdebug.org/) is planned.
+PLANNED: FirePHP integration with [Xdebug](http://xdebug.org/) is planned.
 
 With FirePHP 1.0, variables are logged using the [Insight API](API/Insight):
 
@@ -63,7 +69,7 @@ With FirePHP 1.0, variables are logged using the [Insight API](API/Insight):
 
 NOTE: The [traditional FirePHP API](API/FirePHP) is still supported.
 
-And displayed in the [Firebug](http://getfirebug.com/) [Console](http://getfirebug.com/commandline) or the [DeveloperCompanion](http://developercompanion.com/) Request Inspector respectively:
+And displayed in the [Firebug](http://getfirebug.com/) [Console](http://getfirebug.com/commandline) or the [DeveloperCompanion](Clients#devcomp) Request Inspector respectively:
 
 ![Firebug Console Image](resources/images/screenshots/HelloWorldFirebugConsole.png) ![DeveloperCompanion Request Inspector Image](resources/images/screenshots/HelloWorldDeveloperCompanion.png)
 
