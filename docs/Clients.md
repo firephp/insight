@@ -26,7 +26,7 @@ _[Insight](Insight)_ and thus _FirePHP 1.0_ feature set**.
 
 All **core features** as previously provided by the *FirePHP Firefox Extension* are free to be used.
 
-![DeveloperCompanion Install Button](http://developercompanion.com/resources/images/devcomp-install_v1.png){: href="http://developercompanion.com/install" resize="false" align="center"}
+![DeveloperCompanion Install Button](http://developercompanion.com/resources/images/devcomp-install_v1.png){: href="http://developercompanion.com/do-install" resize="false" align="center"}
 
 *DeveloperCompanion* includes additional opt-in features aimed at making developers highly efficient. Licensing
 proceeds support the further development of *FirePHP* and [related technologies](http://www.christophdorn.com/OpenSource/) as well as
