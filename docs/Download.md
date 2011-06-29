@@ -1,4 +1,7 @@
 
+FirePHP 1.0 Downloads
+=====================
+
 <table class="pivot">
     <tr>
         <th>Server Library Releases</th>
@@ -30,20 +33,6 @@
         <td class="center">5.1+</td>
     </tr>
     <tr class="heading">
-        <td>Supported Clients</td>
-        <td colspan="2">&nbsp;</td>
-    </tr>
-    <tr>
-        <td><a href="http://www.firephp.org/" target="_blank">FirePHP Extension</a></td>
-        <td class="center"><div class="icon-yes"></div></td>
-        <td class="center"><a href="../FAQ/#Is FirePHP 1.0 backwards compatible">limited</a></td>
-    </tr>
-    <tr>
-        <td><a href="http://www.developercompanion.com/" target="_blank">DeveloperCompanion</a></td>
-        <td class="center"><div class="icon-yes"></div></td>
-        <td class="center"><div class="icon-yes"></div></td>
-    </tr>
-    <tr class="heading">
         <td>Download</td>
         <td colspan="2">&nbsp;</td>
     </tr>
@@ -57,4 +46,21 @@
     </tr>
 </table>
 
-sss ** bold** sss
+NOTE: Built-in *phar* support is available as of PHP 5.3.0 and can be manually installed for prior versions. See: [Phar in the PHP Manual](http://php.net/manual/en/book.phar.php)
+
+After downloading FirePHP you need to configure and include it. See [Install](Install#configure) for an overview.
+
+Archive Content
+===============
+
+All code in the archives is 100% [open source](OpenSource). Your feedback, improvements and general contributions to the FirePHP
+project are welcome.
+
+  * `lib/`
+    * `FirePHP/` - The new *FirePHP 1.0*.
+    * `FirePHPCore/` - The original (pre 1.0).
+    * `Insight/` - The [Insight](Insight) intelligence system.
+    * `Wildfire/` - The communication system. See [Protocols](Protocols).
+    * `Zend/` - Various [Zend Framework](http://framework.zend.com/) components.
+  * `CHANGELOG.md`
+  * `LICENSE.md`

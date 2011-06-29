@@ -27,6 +27,10 @@
                     "path": "/Features.md"
                 },
                 {
+                    "label": "Concepts",
+                    "path": "/Concepts.md"
+                },
+                {
                     "label": "Quickstart",
                     "path": "/Quickstart.md"
                 },
@@ -45,6 +49,10 @@
                         {
                             "label": "Download",
                             "path": "/Download.md"
+                        },
+                        {
+                            "label": "Traditional: FirePHPCore",
+                            "path": "/Configuration/Traditional.md"
                         },
                         {
                             "label": "Configure: constants",
@@ -123,6 +131,11 @@
                             "label": "Contribute",
                             "path": "/OpenSource.md",
                             "bookmark": "contribute"
+                        },
+                        {
+                            "label": "Community",
+                            "path": "/OpenSource.md",
+                            "bookmark": "community"
                         }
                     ]
                 }

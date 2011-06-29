@@ -20,13 +20,16 @@ Fully Featured Clients
 
 DeveloperCompanion
 ------------------
+{: id="devcomp"}
 
 [DeveloperCompanion](http://developercompanion.com/) is the **preferred client** for *FirePHP 1.0* and **implements the full
 _[Insight](Insight)_ and thus _FirePHP 1.0_ feature set**.
 
 All **core features** as previously provided by the *FirePHP Firefox Extension* are free to be used.
 
-![DeveloperCompanion Install Button](http://developercompanion.com/resources/images/devcomp-install_v1.png){: href="http://developercompanion.com/do-install" resize="false" align="center"}
+![DeveloperCompanion Install Button](http://developercompanion.com/resources/images/devcomp-install_v2.png){: href="http://developercompanion.com/do-install" resize="false" align="center"}
+
+INFO: If [Firebug](http://getfirebug.com/) is installed, messages may be routed to the *Firebug* [Console](http://getfirebug.com/commandline).
 
 *DeveloperCompanion* includes additional opt-in features aimed at making developers highly efficient. Licensing
 proceeds support the further development of *FirePHP* and [related technologies](http://www.christophdorn.com/OpenSource/) as well as
@@ -39,6 +42,7 @@ Partial Featured Clients
 
 FirePHP Firefox Extension
 -------------------------
+{: id="firephp"}
 
 NOTICE: The *FirePHP Firefox Extension* hosted at [https://addons.mozilla.org/en-US/firefox/addon/firephp/](https://addons.mozilla.org/en-US/firefox/addon/firephp/) is **deprecated**!
 

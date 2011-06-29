@@ -2,11 +2,11 @@
 FirePHP 1.0+
 ============
     
-Since [FirePHP 1.0](Introduction) the *FirePHP Project's* sole focus is on the [FirePHP Server Library](Install).
-To support *FirePHP* on the client the [DeveloperCompanion Firefox Extension](http://www.developercompanion.com/) is used.
+Since *FirePHP 1.0* the *FirePHP Project's* sole focus is on the [FirePHP Server Library](Install).
+To support *FirePHP* on the client the [DeveloperCompanion Firefox Extension](Clients#devcomp) is used.
 The tutorials below were written in the context of these two components and show how to use
 the *FirePHP Server Library* with the *DeveloperCompanion Extension* (Some tutorials were written
-against an earlier preview of DeveloperCompanion).
+against an earlier preview of *DeveloperCompanion*).
 
 Introductory
 ------------
@@ -22,25 +22,23 @@ Advanced
   * [Oct 2010 - TIP: FirePHP data volume filtering](http://www.christophdorn.com/Blog/2010/10/15/tip-firephp-data-volume-filtering/) (www.christophdorn.com)
   * [Aug 2010 - Gain insight into your cache interaction with FirePHP Companion](http://www.christophdorn.com/Blog/2010/08/24/gain-insight-into-your-cache-interaction-with-firephp-companion/) (www.christophdorn.com)
   * [Aug 2010 - Introducing FirePHP Companion](http://www.christophdorn.com/Blog/2010/08/20/introducing-firephp-companion/) (www.christophdorn.com)
-    
+
+
 FirePHP < 1.0
 =============
     
-Before [FirePHP 1.0](Introduction) the *FirePHP Project* consisted of the
+Before *FirePHP 1.0* the *FirePHP Project* consisted of the
 [FirePHPCore Server Library](http://www.firephp.org/HQ/Install.htm) and the 
-[FirePHP Firefox Extension](https://addons.mozilla.org/en-US/firefox/addon/6149/). The tutorials below were
+[FirePHP Firefox Extension](Clients#firephp). The tutorials below were
 written in the context of these two components and show how to use the *FirePHPCore Server Library* with the *FirePHP Firefox Extension*.
 
-
-NOTE: Instead of using the *FirePHPCore* library you can also use the new [FirePHP 1.0](Install) a release
-    which includes the *FirePHPCore* files. This will provide you with an easy [upgrade path](http://upgrade.firephp.org)
-    to the new [Insight API](API)
-
+NOTE: Instead of using the *FirePHPCore* library you can use the new *FirePHP 1.0* release
+which includes the *FirePHPCore* files. This will provide you with an easy [upgrade path](Configuration/Traditional#upgrade)
+to the new [Insight API](API/Insight) when you are ready.
 
 NOTE: Instead of the *FirePHP Firefox Extension* you can also use the
-    new [DeveloperCompanion Firefox Extension](http://www.developercompanion.com) on the client which is 100% backwards compatible with the *FirePHPCore Server
-    Library* and fully compatible with the *FirePHP 1.0* library. This is actually **recommended** as the new extension fixes many issues.
-
+new [DeveloperCompanion Firefox Extension](Clients#devcomp) on the client which is 100% backwards compatible with the *FirePHPCore Server
+Library* and fully compatible with the *FirePHP 1.0* library. This is actually **recommended** as the new extension fixes many issues.
 
 Introductory
 ------------
@@ -48,12 +46,11 @@ Introductory
   * [Installing and using FirePHPCore](http://www.firephp.org/HQ/Install.htm) (www.firephp.org)
   * [Jul 2010 - How to Debug PHP Using Firefox with FirePHP](http://sixrevisions.com/web-development/how-to-debug-php-using-firefox-with-firephp)(sixrevisions.com)
   * [Oct 2008 - How to debug PHP code](http://yensdesign.com/2008/10/how-to-debug-php-code/)(yensdesign.com)
-   
 
 Framework Integrations
 ----------------------
 
-There is a [large list of third party components and tutorials](http://www.firephp.org/Wiki/Libraries/FirePHPCore) for integrationg *FirePHP* into popular frameworks.
+There is a [large list of third party components and tutorials](http://www.firephp.org/Wiki/Libraries/FirePHPCore) for integrating *FirePHP* into popular frameworks.
 
 Advanced
 --------
@@ -63,7 +60,7 @@ Advanced
   * [Jun 2009 - Nginx proxies with FirePHP](http://britg.com/2009/06/16/nginx-proxies-with-firephp/) (britg.com)
   * [Apr 2009 - Integrating FirePHP for Ajax Development](http://www.christophdorn.com/Blog/2009/04/03/how-to-integrate-firephp-for-ajax-development/) (www.christophdorn.com)
   * [Apr 2009 - FirePHP for Zend Server](http://www.christophdorn.com/Blog/2009/04/01/firephp-for-zend-server/) (www.christophdorn.com)
-   
+
 
 Zend Framework
 ==============
@@ -80,7 +77,6 @@ Introductory
   * [Feb 2009 - Logging with Zend Framework and FirePHP](http://www.oneangrydwarf.co.uk/web/logging-with-zend-framework-and-firephp/) (www.oneangrydwarf.co.uk)
   * [Oct 2008 - Profiling queries with Zend_Db_Profiler_Firebug](http://www.christophdorn.com/Blog/2008/10/14/profiling-queries-with-zend_db_profiler_firebug/) (www.christophdorn.com)
   * [Sep 2008 - FirePHP and Zend Framework 1.6](http://www.christophdorn.com/Blog/2008/09/02/firephp-and-zend-framework-16/) (www.christophdorn.com)
-   
 
 Advanced
 --------
