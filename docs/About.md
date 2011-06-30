@@ -112,21 +112,6 @@ License
 *FirePHP* is licensed under the [MIT License](http://github.com/cadorn/firephp-libs/blob/master/programs/standalone/LICENSE).
 
 
-Composition
-===========
-
-The *FirePHP Server Library* combines components from several projects:
-
-  * [firephp-libs](http://github.com/cadorn/firephp-libs) - The home of the *FirePHP Server Library* that wraps all components
-  * [wildfire](http://github.com/cadorn/wildfire) - The communication system
-  * [insight](http://github.com/cadorn/insight) - The intelligence system
-  * [Zend Framework](http://framework.zend.com/) - Several components are used
-
-See [Open Source](OpenSource.md) for more information.
-
-PLANNED: The *firephp-libs*, *wildfire* and *insight* projects will be reorganized soon.
-
-
 Support
 =======
 

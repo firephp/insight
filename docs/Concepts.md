@@ -1,8 +1,5 @@
 
-Hello World 1
+FirePHP Concepts
+================
 
-Upgrading to FirePHP 1.0 proper
-===============================
-{: id="upgrade"}
-
-Hello World 2
+TODO

@@ -14,7 +14,7 @@ The traditional way of just including and using FirePHP is still supported **BUT
 
 NOTICE: You are encouraged to upgrade (see below) to the new way of configuring FirePHP.
 
-Inclusion
+Including
 =========
 
 NOTE: It is assumed you have FirePHP [downloaded](../Download).
@@ -27,6 +27,9 @@ See [here](../API/FirePHP) for details on the FirePHP Object Oriented and Proced
 Instead of `ob_start()`, the [output_buffering](http://us.php.net/manual/en/outcontrol.configuration.php#ini.output-buffering) 
 [php ini directive](http://us.php.net/manual/en/configuration.changes.php) may be used. Output buffering is needed
 as headers are sent while logging to FirePHP throughout the request.
+
+SECURITY: **ANYONE** will be able to receive logged data unless you **specifically disable** *FirePHP*! 
+See [FirePHP API](../API/FirePHP#disable).
 
 If using the extracted *zip* archive
 ------------------------------------
