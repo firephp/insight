@@ -3,57 +3,35 @@ FirePHP 1.0
 
 **Status: dev**
 
-This project contains the FirePHP 1.0 PHP server library and provides a development environment for working on FirePHP. 
+> **FirePHP is an advanced logging system that can display PHP variables in the browser as an application is navigated.**
+> All communication is out of band to the application meaning that the logging data will not interfere with the normal functioning of the application.
 
-The [PINF JavaScript Loader](https://github.com/pinf/loader-js) is used to provide a development environment and package releases for this project.
+This project contains the [FirePHP 1.0](http://docs.sourcemint.org/firephp.org/firephp/1) PHP server library 
+and provides a development environment  (see `./workspace/`) for working on *FirePHP*.
 
-**NOTE:** It is assumed you have the _PINF JavaScript Loader_ mapped to the `commonjs` command and are using the `node` platform by default as explained [here](https://github.com/pinf/loader-js/blob/master/docs/Setup.md).
+See [OpenSource](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/OpenSource) in the 
+[FirePHP 1.0 Documentation](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/) for information on the structure
+of this repository and how to contribute.
 
-Demo
-====
-
-    commonjs -v https://github.com/firephp/firephp
-
-
-Development
-===========
-
-    git clone git://github.com/firephp/firephp.git
-    cd firephp
-    commonjs -v ./
-
-    // force internal modules to be reloaded with every request
-    commonjs -v ./ --reloading
+To install and use *FirePHP* see [Install](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/Install).
 
 
 Support & Feedback
 ==================
 
-Mailing list: [http://groups.google.com/group/firephp-dev](http://groups.google.com/group/firephp-dev)
+See [Support](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/OpenSource#support) in the [FirePHP 1.0 Documentation](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/).
 
 
 Contribute
 ==========
 
-Collaboration Platform: [https://github.com/firephp/firephp/](https://github.com/firephp/firephp/)
-
-Collaboration Process:
-
-  1. Send message to discuss your change
-  2. Write a patch on your own
-  3. Send pull request on github
-  4. Discuss pull request on github to refine
-
-You must explicitly license your patch by adding the following to the top of any file you modify
-in order for your patch to be accepted:
-
-    //  - <GithubUsername>, First Last <Email>, Copyright YYYY, MIT License
+See [Contribute](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/OpenSource#contribute) in the [FirePHP 1.0 Documentation](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/).
 
 
 Author
 ======
 
-This project is maintained by [Christoph Dorn](http://www.christophdorn.com/).
+This project is authored and maintained by [Christoph Dorn](http://www.christophdorn.com/).
 
 
 Documentation License

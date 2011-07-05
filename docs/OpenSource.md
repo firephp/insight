@@ -5,6 +5,7 @@ Your contributions are welcome and very much appreciated.
 
 Support
 =======
+{: id="support"}
 
 General Support & Discussions
 -----------------------------

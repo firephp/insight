@@ -31,6 +31,14 @@
                     "path": "/Concepts.md"
                 },
                 {
+                    "label": "FirePHP 101",
+                    "path": "/101.md"
+                },
+                {
+                    "label": "Examples",
+                    "path": "/Examples.md"
+                },
+                {
                     "label": "Quickstart",
                     "path": "/Quickstart.md"
                 },
@@ -97,10 +105,6 @@
                 {
                     "label": "Tutorials",
                     "path": "/Tutorials.md"
-                },
-                {
-                    "label": "Examples",
-                    "path": "/Examples.md"
                 },
                 {
                     "label": "Integrations",
