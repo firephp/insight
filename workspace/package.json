@@ -11,20 +11,8 @@
         "pinf": {
             "id": "pinf.org/loader"
         },
-        "docs": {
-            "id": "github.com/pinf/docs-js/"
-        },
-        "jsgi": {
-            "id": "github.com/kriszyp/jsgi-node/"
-        },
-        "connect": {
-            "id": "github.com/senchalabs/connect/"
-        },
         "modules": {
             "id": "github.com/pinf/modules-js/"
-        },
-        "markdown": {
-            "id": "github.com/cadorn/markdown-js/"
         }
     }
 }
