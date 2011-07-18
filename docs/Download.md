@@ -52,6 +52,7 @@ After downloading FirePHP you need to configure and include it. See [Install](In
 
 Archive Content
 ===============
+{: id="content"}
 
 All code in the archives is 100% [open source](OpenSource). Your feedback, improvements and general contributions to the FirePHP
 project are welcome.

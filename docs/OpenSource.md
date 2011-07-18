@@ -79,7 +79,7 @@ Project Structure
 =================
 
 The *FirePHP Server Library* takes components from several projects and combines these into a single 
-cohesive library [available](Install) as a *zip* or *phar* archive.
+cohesive library [available](Install) as a *zip* or *phar* archive. See [here](Download#content) for what is included in the archive.
 
 Repository Structure
 --------------------
@@ -90,6 +90,7 @@ Repository Structure
     * `Insight/` - The [Insight](Insight) intelligence system implementation synced with [https://github.com/pinf/insight-php](https://github.com/pinf/insight-php)
     * `Wildfire/` - The communication system. See [Protocols](Protocols). Synced with [https://github.com/pinf/wildfire-php](https://github.com/pinf/wildfire-php)
     * `Zend/` - Various [Zend Framework](http://framework.zend.com/) components.
+  * `workspace/` - A [PINF JavaScript Loader](https://github.com/pinf/loader-js) based workspace to provide a development environment and package releases for the *FirePHP 1.0* project.
   * `CHANGELOG.md`
   * `LICENSE.md`
   * `README.md`
