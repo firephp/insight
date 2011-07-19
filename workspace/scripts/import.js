@@ -7,18 +7,40 @@ var PINF_LOADER = require("pinf/loader"),
 
 exports.main = function()
 {
-	var libPath = FILE.dirname(FILE.dirname(FILE.dirname(module.id))) + "/lib";
+	var libPath = FILE.dirname(FILE.dirname(FILE.dirname(module.id))) + "/lib",
+		testsPath = FILE.dirname(FILE.dirname(FILE.dirname(module.id))) + "/tests/sub";
 
-	Q.when(copy(SANDBOX.packageForId("github.com/firephp/firephp-core/").path + "/lib", libPath), function()
+	var queue = [
+	    [SANDBOX.packageForId("github.com/firephp/firephp-core/").path + "/lib", libPath],
+	    [SANDBOX.packageForId("github.com/firephp/firephp-core/").path + "/tests", testsPath + "/firephp-core"],
+	    [SANDBOX.packageForId("github.com/pinf/wildfire-php/").path + "/lib", libPath],
+	    [SANDBOX.packageForId("github.com/pinf/wildfire-php/").path + "/tests", testsPath + "/wildfire-php"],
+	    [SANDBOX.packageForId("github.com/pinf/insight-php/").path + "/lib", libPath],
+	    [SANDBOX.packageForId("github.com/pinf/insight-php/").path + "/tests", testsPath + "/insight-php"]
+	];
+
+	function next()
 	{
-		Q.when(copy(SANDBOX.packageForId("github.com/pinf/wildfire-php/").path + "/lib", libPath), function()
+		if (queue.length === 0) {
+			done();
+			return;
+		}
+		var paths = queue.shift();
+
+		if (!FILE.exists(paths[0])) {
+			next();
+			return;
+		}
+		
+		if (!FILE.exists(paths[1]))
+			FILE.mkdirs(paths[1], 0775);
+
+		Q.when(copy(paths[0], paths[1]), function()
 		{
-			Q.when(copy(SANDBOX.packageForId("github.com/pinf/insight-php/").path + "/lib", libPath), function()
-			{
-				done();
-			});
+			next();
 		});
-	});
+	}
+	next();
 	
 	function done()
 	{
