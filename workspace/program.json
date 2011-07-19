@@ -1,5 +1,8 @@
 {
     "boot": "workspace",
+    "extends": {
+        "location": "../program.packages.json"
+    },
     "engine": [
         "node"
     ],
@@ -7,6 +10,11 @@
         "workspace": {
             "locator": {
                 "location": "./"
+            }
+        },
+        "github.com/firephp/firephp/": {
+            "locator": {
+                "location": "../"
             }
         },
         "nodejs.org": {

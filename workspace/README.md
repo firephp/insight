@@ -25,3 +25,14 @@ Tests
     open http://firephpcore.firefox_5-firebug_1_7-firephpextension_0_5-firephpcore_0_3.macbook.home.cadorn.net:10089/?test=1
 
     commonjs -v --script teardown ./packages/test
+
+
+Sub-project code syncing
+========================
+
+Dependencies are recorded in `../package.json'. Run the following to import the dependencies into their
+respective directories in `../lib/`.
+
+**WARNING: Running this will over-write most of the files in `../lib/`! Make sure to sync changes to sub-project first.**
+
+    commonjs -v --script import ./

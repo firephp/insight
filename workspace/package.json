@@ -4,6 +4,17 @@
         "node"
     ],
     "main": "lib/project.js",
+    "scripts": {
+        "import": {
+            "location": "./",
+            "module": "/scripts/import.js"
+        }
+    },
+    "dependencies": [
+        {
+            "id": "github.com/firephp/firephp/"
+        }
+    ],
     "mappings": {
         "nodejs": {
             "id": "nodejs.org"
