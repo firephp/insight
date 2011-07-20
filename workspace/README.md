@@ -14,6 +14,9 @@ Documentation
 Tests
 =====
 
+Toolchain
+---------
+
 **NOTE: At this time these tests will only work on OSX!**
 
     commonjs -v --script setup ./packages/test
@@ -25,6 +28,18 @@ Tests
     open http://firephpcore.firefox_5-firebug_1_7-firephpextension_0_5-firephpcore_0_3.macbook.home.cadorn.net:10089/?test=1
 
     commonjs -v --script teardown ./packages/test
+
+PHPUnit
+-------
+
+    cd ../tests/firephp
+    phpunit .
+    
+    cd ../tests/sub/firephp-core
+    phpunit .
+
+    cd ../tests/sub/wildfire-php
+    phpunit .
 
 
 Sub-project code syncing

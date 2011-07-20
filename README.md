@@ -9,11 +9,11 @@ FirePHP 1.0
 This project contains the [FirePHP 1.0](http://docs.sourcemint.org/firephp.org/firephp/1) PHP server library 
 and provides a development environment  (see `./workspace/`) for working on *FirePHP*.
 
-See [OpenSource](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/OpenSource) in the 
-[FirePHP 1.0 Documentation](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/) for information on the structure
-of this repository and how to contribute.
+Usage
+=====
 
-To install and use *FirePHP* see [Install](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/Install).
+See  [Install](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/Install) in the
+[FirePHP 1.0 Documentation](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/).
 
 
 Support & Feedback
