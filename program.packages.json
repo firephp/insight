@@ -7,12 +7,12 @@
         },
         "github.com/firephp/firephp-core/": {
             "locator": {
-                "archive": "https://github.com/firephp/firephp-core/zipball/v0.3.3rc2"
+                "archive": "https://github.com/firephp/firephp-core/zipball/v0.4.0rc2"
             }
         },
         "github.com/pinf/wildfire-php/": {
             "locator": {
-                "archive": "https://github.com/pinf/wildfire-php/zipball/v0.1.0"
+                "archive": "https://github.com/pinf/wildfire-php/zipball/v0.1.2"
             }
         }
     }
