@@ -19,6 +19,12 @@ exports.main = function()
 	    [SANDBOX.packageForId("github.com/pinf/insight-php/").path + "/tests", testsPath + "/insight-php"]
 	];
 
+	SYSTEM.exec("rm -Rf " + testsPath, function()
+	{
+		FILE.mkdirs(testsPath, 0775);
+		next();
+	});
+
 	function next()
 	{
 		if (queue.length === 0) {
@@ -40,15 +46,12 @@ exports.main = function()
 			next();
 		});
 	}
-	next();
 	
 	function done()
 	{
 		module.print("\0green(Done\0)\n");
 	}
 }
-
-
 
 function copy(sourcePath, targetPath)
 {
