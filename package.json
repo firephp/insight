@@ -1,13 +1,33 @@
 {
     "uid": "https://github.com/firephp/firephp/",
     "name": "firephp",
-    "author": "Christoph Dorn (http://www.christophdorn.com/)",
+    "label": "FirePHP Server Library",
     "repositories": [
         {
             "type": "git",
             "url": "git://github.com/firephp/firephp.git"
         }
     ],
+    "maintainers": [
+        {
+            "name": "Christoph Dorn",
+            "email": "christoph@christophdorn.com",
+            "web": "http://www.christophdorn.com/",
+            "alias": {
+                "github": "cadorn"
+            }
+        }
+    ],
+    "contributors": [
+        {
+            "name": "Christoph Dorn",
+            "email": "christoph@christophdorn.com",
+            "web": "http://www.christophdorn.com/",
+            "alias": {
+                "github": "cadorn"
+            }
+        }
+    ]
     "dependencies": [
         {
             "id": "github.com/pinf/insight-php/"
