@@ -48,6 +48,6 @@ Sub-project code syncing
 Dependencies are recorded in `../package.json'. Run the following to import the dependencies into their
 respective directories in `../lib/`.
 
-**WARNING: Running this will over-write most of the files in `../lib/` and all in `../tests/sub/`! Make sure to sync changes to sub-project first.**
+**WARNING: Running this will over-write most of the files in `../lib/` and all in `../tests/sub/`! Make sure to sync changes to sub-projects first.**
 
     commonjs -v --script import ./

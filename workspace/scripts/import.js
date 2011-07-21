@@ -7,6 +7,8 @@ var PINF_LOADER = require("pinf/loader"),
 
 exports.main = function()
 {
+	// TODO: Do not allow import if working directory dirty
+
 	var libPath = FILE.dirname(FILE.dirname(FILE.dirname(module.id))) + "/lib",
 		testsPath = FILE.dirname(FILE.dirname(FILE.dirname(module.id))) + "/tests/sub";
 
