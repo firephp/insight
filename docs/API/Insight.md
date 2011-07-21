@@ -1,5 +1,5 @@
 
-NOTE: The *Insight API* is **not supported** by the [FirePHP Firefox Extension](Clients#firephp).
+NOTE: The *Insight API* is **not supported** by the [FirePHP Firefox Extension](../Clients#firephp).
 
 The new *Insight API* takes an object oriented approach and provides many more features than the traditional [FirePHP API](FirePHP). See 
 [Overview](Overview) for a comparison:
@@ -183,6 +183,7 @@ INFO: *Encoder* option defaults may be set by configuration. See [Advanced Confi
 
 Class Member Filters
 --------------------
+{: id="console-api-class-member-filters"}
 
 Manually setting a class member filter:
 
@@ -252,6 +253,7 @@ Stack Traces
 
 Groups
 ------
+{: id="console-api-groups"}
 
 Logging to a group by name:
 
@@ -338,6 +340,7 @@ NOTE: Links added this way will augment links already added via the `package.jso
 
 Insight/Control API
 ===================
+{: id="control-api"}
 
 The *Insight/Control API* is used to control the client in the context of the request.
 
@@ -354,7 +357,9 @@ This will cause the client to focus on the data sent while the request executed.
     CODE: {"lang":"php"}
     $controller->triggerInspect();
 
-NOTE: There are [several ways](Workflow#inspecting-requests) to inspect a given request.
+NOTE: This is equivalent to `$console->show();`
+
+INFO: There are [several ways](../Workflow#inspecting-requests) to inspect a given request.
 
 
 Insight/FirePHP API
@@ -368,6 +373,7 @@ The *Insight/FirePHP API* provides utility functions to make development and mon
 
 Convenience Logging for Ad-hock Debugging
 -----------------------------------------
+{: id="firephp-api-declareP"}
 
 Fumbling with `$console` objects can become tedious if you just want to quickly log a variable during development. A `p()` shortcut function can be made
 available to easily *print* variables to a console.

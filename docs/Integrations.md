@@ -17,6 +17,9 @@ Editors
 Frameworks
 ==========
 
+NOTICE: See [http://www.firephp.org/Wiki/](http://www.firephp.org/Wiki/) for all framework integrations until that information has been
+migrated to this page.
+
 ### [Zend Framework](http://framework.zend.com/)
 
 *ZendFramework* has native *FirePHP* support based on the [FirePHPCore](Configuration/Traditional) library.

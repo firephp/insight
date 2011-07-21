@@ -64,6 +64,7 @@ Planned Clients
 
 FireConsole
 -----------
+{: id="fireconsole"}
 
 [http://fireconsole.org/](http://fireconsole.org/) is a [FirePHP Extension](https://addons.mozilla.org/en-US/firefox/addon/firephp/) 
 replacement project that was originally intended to be used to incubate the [Insight](Insight) system in a collaborative fashion.

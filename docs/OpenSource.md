@@ -32,6 +32,7 @@ Make new feature requests via the developer mailing list [http://groups.google.c
 
 Contribute
 ==========
+{: id="contribute"}
 
 The *FirePHP* project is hosted on [github.com/firephp/firephp](https://github.com/firephp/firephp) and discussed
 at [http://groups.google.com/group/firephp-dev](http://groups.google.com/group/firephp-dev).
@@ -84,6 +85,7 @@ cohesive library [available](Install) as a *zip* or *phar* archive. See [here](D
 Repository Structure
 --------------------
 
+  * `docs/` - The official *FirePHP 1.0* documentation available at: [http://docs.sourcemint.org/firephp.org/firephp/1/-docs/](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/)
   * `lib/`
     * `FirePHP/` - The new *FirePHP 1.0* implementation.
     * `FirePHPCore/` - The original (pre 1.0) implementation synced with [https://github.com/firephp/firephp-core](https://github.com/firephp/firephp-core).
@@ -103,9 +105,12 @@ Community
 =========
 {: id="community"}
 
-A list of contributors can be found [here](https://github.com/firephp/firephp/blob/master/package.json).
-
 You can follow *FirePHP* on:
 
   * Twitter: [http://twitter.com/firephplib](http://twitter.com/firephplib)
   * Blog: [http://www.christophdorn.com/Blog/category/firephp/](http://www.christophdorn.com/Blog/category/firephp/)
+
+A list of contributors can be found here:
+
+  * [https://github.com/firephp/firephp/blob/master/package.json](https://github.com/firephp/firephp/blob/master/package.json)
+  * [https://github.com/firephp/firephp-core/blob/master/package.json](https://github.com/firephp/firephp-core/blob/master/package.json)
