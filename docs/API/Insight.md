@@ -4,7 +4,7 @@ NOTE: The *Insight API* is **not supported** by the [FirePHP Firefox Extension](
 The new *Insight API* takes an object oriented approach and provides many more features than the traditional [FirePHP API](FirePHP). See 
 [Overview](Overview) for a comparison:
 
-    CODE: {"lang": "php", "run": "http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/PageConsole-InsightAPI"}
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/PageConsole-InsightAPI"}
     
     define('INSIGHT_CONFIG_PATH', '...');
     require_once('FirePHP/Init.php');
@@ -22,7 +22,7 @@ NOTE: While some of the method names in the new *Insight API* are called the sam
 
 Activation & Authorization
 ==========================
-    
+
 The *Insight API* must be activated and authorized to record and send data to the client. It is activated by default and may be deactivated from the
 client. Authorization occurs on a per-hostname basis. See [Authorizing](../Authorizing) for more information.
 
@@ -30,8 +30,8 @@ NOTE: If *Insight* is deactivated from the client the [FirePHP API](FirePHP) wil
 *FirePHP* using the `/FirePHP/*.php` files.
 
 
-Contexts - `FirePHP::to('<target>')`
-====================================
+Contexts: `FirePHP::to('<target>')`
+===================================
 {: id="to"}
 
 To record/log any data a *context* must be initialized by specifying a *target*:
@@ -46,124 +46,79 @@ To record/log any data a *context* must be initialized by specifying a *target*:
     
     INFO: See [Insight/Console API](Insight#console-api) below for how to send different kinds of messages to this target.
 
-  * `request`
-
-
-
-
-Initialize a fresh message context by specifying a *target*. Supported *targets* are:
-
-controller = FirePHP::to('controller');
----------------------------------------
-       
-NOTE: See [Control API](#Control API) for how to use this context.
-
-
-$inspector = FirePHP::to('request'); &nbsp;&nbsp;&nbsp; Request Context
------------------------------------------------------------------------
-    
-Obtain a message context that will send messages to a named *request console*. These messages will show up in the *Companion Window*
-**after an [*inspect* has been triggered](/Workflow/#Inspecting Requests)**.
+  * `request` - Obtain a *message context* that will send messages to the *request* target. These messages will show up in the *Companion Window*
+    **after an [*inspect* has been triggered](Workflow#inspecting-requests)**.
         
-    $inspector = FirePHP::to('request');
-    $console = $inspector->console('&lt;Tab Label&gt;');
-        
-NOTE: The *&lt;Tab Label&gt;* is optional and defaults to *Console*.
-
-INFO: See [Console API](#Console API) for how to send different kinds of messages to this target.
-
-        
-
-
-$inspector = FirePHP::to('package'); &nbsp;&nbsp;&nbsp; Package Context
------------------------------------------------------------------------
-   
-Obtain a message context that will record information about the application package. This info is used in the *Companion Window* when displaying
-information about a request.
+        CODE: {"lang": "php"}
+        $inspector = FirePHP::to('request');
+        $console = $inspector->console('<Tab Label>');
+        $console->log('Hello World');
     
-        <pre><code class="chili-lang-php">$package = FirePHP::to('package');</code></pre>
+    NOTE: The `<Tab Label>` is optional and defaults to *Console*.
     
-INFO: See [Package API](#Package API).
+    INFO: See [Insight/Console API](Insight#console-api) below for how to send different kinds of messages to this target.
 
+  * `package` - Obtain a *message context* that will record information about the application package. This info is used in the 
+    *Companion Window* when displaying information about a request.
     
-FirePHP::plugin('&lt;name&gt;')
-===============================
+    INFO: See [Package API](Insight#package-api) below for how to use this target.
+
+  * `controller` - Obtain a *message context* that is used to control the client.
+    
+    INFO: See [Insight/Control API](Insight#control-api) below for how to use this target.
+
+
+Plugins: `FirePHP::plugin('<name>')`
+====================================
+{: id="plugin"}
     
 Get a plugin by specifying a *name*. Supported *plugins* are:
-    
 
-$firephp = FirePHP::plugin('firephp');
---------------------------------------
+  * `firephp` - The *firephp* plugin provides utility functions to make development and monitoring easier.
     
-The *firephp* plugin provides utility functions to make development and monitoring easier.
-    
-NOTE: See [FirePHP API](#FirePHP API) for how to use this plugin.
+    INFO: See [Insight/FirePHP API](Insight#firephp-api) for how to use this plugin.
 
     
-Control API
-===========
+Insight/Console API
+===================
+{: id="console-api"}
 
-The *Control API* is used to control the client in the context of the request.
-    
-        <div class="code"><pre><code class="chili-lang-php">$controller = FirePHP::to('controller');</code></pre></div>
+The *Insight/Console API* is used to send messages to a given target.
 
-    
-Triggers
---------
-    
-Schedule an *inspect* event for the current request which will be executed by the client once the entire response is received by the browser.
-This will cause the client to focus on the data sent while the request executed.
+    CODE: {"lang":"php"}
+    $console = FirePHP::to('<target>')->console('<Tab Label>');
 
-        <pre><code class="chili-lang-php">$controller->triggerInspect();</code></pre>
-    
-NOTE: There are [several ways](/Workflow/#Inspecting Requests) to inspect a given request.
+NOTE: The `<Tab Label>` is optional and defaults to `Console`.
 
-    
-Console API
-===========
-        
-INFO: Use the following drop-down to set where the examples should appear.
-    
-        <select id="console-api-code-run-target-selector" class="monospaced">
-          <option value="page">$console = FirePHP::to('page')->console(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -> Firebug Console</option>
-          <option value="request">$console = FirePHP::to('request')->console(); &nbsp;&nbsp; -> Companion Window</option>
-        </select>    
-    
-NOTE: If logging to *Firebug* make sure you have the *Console*, *Net* and *Insight* panels enabled.
-    
-The *Console API* is used to send messages to a given target.
-    
-        <div class="code"><pre><code class="chili-lang-php">$console = FirePHP::to('&lt;target&gt;')->console('&lt;Tab Label&gt;');</code></pre></div>
-    
-NOTE: The *&lt;Tab Label&gt;* is optional and defaults to *Console*.
+NOTE: The `<target>` defines where the messages will show up. See [FirePHP::to('<target>')](Insight#to) above.
 
-NOTE: The *&lt;target&gt;* defines where the messages will show up. See [FirePHP::to('&lt;target&gt;')](#FirePHP::to) above.
-    
 
 Variable Truncation
 -------------------
-        
+
 NOTE: Large variables are *truncated* when traversing (nested arrays and object members) by preventing the transmission of data, beyond certain limits,
 to the client.
+
+By default variables are truncated according to the [encoder options](Insight#console-api-options). To avoid truncating variables use:
     
-By default variables are truncated according to the [encoder options](/Install/#Configuration Options). To avoid truncating variables use:
-    
-        <div class="code"><pre><code class="chili-lang-php">$console = $console->nolimit();</code></pre></div>
-        
-NOTE: Calling *nolimit(false)* will reset the option and cause variables to be truncated again.
-    
+    CODE: {"lang":"php"}
+    $console = $console->nolimit();
+
+NOTE: Calling `nolimit(false)` will reset the option and cause variables to be truncated again.
+
 
 String Trimming
 ---------------
 
 NOTE: Large strings are *trimmed* when displayed in the client console.
     
-By default pure string variables are trimmed to 500 characters and string values as part of arrays or objects to 50 characters. To avoid trimming
-strings use:
-    
-        <div class="code"><pre><code class="chili-lang-php">$console = $console->notrim();</code></pre></div>
+By default pure string variables are trimmed to 500 characters and string values as part of arrays or objects to 50 characters. To prevent string
+trimming use:
+
+    CODE: {"lang":"php"}
+    $console = $console->notrim();
         
-NOTE: Calling *notrim(false)* will reset the option and cause strings to be trimmed again.
+NOTE: Calling `notrim(false)` will reset the option and cause strings to be trimmed again.
 
 
 Message Expansion
@@ -171,37 +126,42 @@ Message Expansion
         
 By default logged messages are contracted when displayed in the console. To expand any message use:
 
-        <div class="code"><pre><code class="chili-lang-php">$console = $console->expand();</code></pre></div>
-    
+    CODE: {"lang":"php"}
+    $console = $console->expand();
+
 NOTE: Use this to log expanded tables, groups, traces and general log messages.
 
-    
+
 Showing the Console
 -------------------
         
 By default logged messages are tracked by the client but not shown to the user unless they already have the console open. To force the console to
 show use:
     
-        <div class="code"><pre><code class="chili-lang-php">$console->show();</code></pre></div>
-    
+    CODE: {"lang":"php"}
+    $console->show();
+
 NOTE: If logging to the *Firebug Console* you must have *Firebug* open and the *Firebug Console* and *Net* panels enabled.
 
-    
+
 Options
 -------
-    
+{: id="console-api-options"}
+
 Individual encoder (and other) options can be set as needed:
     
-        <div class="code"><pre><code class="chili-lang-php">$console = $console->option('&lt;Name&gt;', &lt;Value&gt;); // or
+    CODE: {"lang":"php"}
+    $console = $console->option('<Name>', <Value>); // or
     $console = $console->options(array(
-        '&lt;Name&gt;' => &lt;Value&gt;
-    );</code></pre></div>
-    
-NOTE: Calling *option()* or *options()* without a value argument will return the current value.
-    
+        '<Name>' => <Value>
+    ));
+
+NOTE: Calling `option()` or `options()` without a value argument will return the current value.
+
 Possible options are as follows (default values are shown):
-    
-        <div class="code"><pre><code class="chili-lang-php">encoder.depthNoLimit : false
+
+    CODE: {"lang":"php"}
+    encoder.depthNoLimit : false
     encoder.lengthNoLimit : false
     encoder.maxDepth : 5
     encoder.maxStringLength : 5000
@@ -212,12 +172,13 @@ Possible options are as follows (default values are shown):
     encoder.trace.offsetAdjustment : 0  // affects file/line logic
     encoder.trace.maxLength : -1  // no maximum
     encoder.exception.traceMaxLength : -1  // no maximum
-    string.trim.enabled : &lt;undefined&gt;  // force/prevent string trimming in UI
+    string.trim.enabled : <undefined>  // force/prevent string trimming in UI
     string.trim.length : 50  // string trim length
     string.trim.newlines : true  // force/prevent string newline expansion
-    file : &lt;automatic&gt;  // sets file for message
-    line : &lt;automatic&gt;  // sets line for message
-    </code></pre></div>
+    file : <automatic>  // sets file for message
+    line : <automatic>  // sets line for message
+
+INFO: *Encoder* option defaults may be set by configuration. See [Advanced Configuration](../Configuration/Advanced).
 
 
 Class Member Filters
@@ -225,161 +186,195 @@ Class Member Filters
 
 Manually setting a class member filter:
 
-        <div class="code"><pre><code selector="console-api-code-run-target-selector" run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/ManualClassFilter" class="chili-lang-php">$filter = array(
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/ManualClassFilter"}
+    
+    $filter = array(
         'classes' => array(
-            '&lt;ClassName&gt;' => array('&lt;MemberName&gt;')
+            '<ClassName>' => array('<MemberName>')
         )
     );
-    $console->filter($filter)-> [Console API]</code></pre></div>
-    
-        <p>Annotation-based class member filter:</p>
-        <div class="code"><pre><code selector="console-api-code-run-target-selector" run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/AnnotationClassFilter" class="chili-lang-php">class &lt;Name&gt; {
+    $console->filter($filter)-> [Console API]
+
+Annotation-based class member filter:
+
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/AnnotationClassFilter"}
+    class <Name> {
         /**
          * @insight filter=on
          */
         public $var;
-    }</code></pre></div>
+    }
 
 
 Logging Variables
 -----------------
-        
-        <pre><code class="chili-lang-php">$console->log($Variable);</code></pre>
+
+    CODE: {"lang":"php"}
+    $console->log($Variable);
 
 
 Message Priorities
 ------------------
-    
-        <div class="code"><pre><code selector="console-api-code-run-target-selector" run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/Priorities" class="chili-lang-php">$console->log($Variable);
+
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/Priorities"}
+    $console->log($Variable);
     $console->info($Variable);
     $console->warn($Variable);
     $console->error($Variable);
-    </code></pre></div>
 
 
 Message Labels
 --------------
 
-    <div class="code"><pre><code selector="console-api-code-run-target-selector" run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/Labels" class="chili-lang-php">$console->label('&lt;Label&gt;')-> [Console API]</code></pre></div>
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/Labels"}
+    $console->label('<Label>')-> [Console API]
 
 
 Tables
 ------
 
-        <div class="code"><pre><code selector="console-api-code-run-target-selector" run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/Tables" class="chili-lang-php">$header = array('Column 1 Heading', 'Column 2 Heading');
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/Tables"}
+    $header = array('Column 1 Heading', 'Column 2 Heading');
     $table = array(
         array('Row 1 Column 1 Value', 'Row 1 Column 2 Value'),
         array($Variable_r2c1, $Variable_r2c2)
     );
-    $console->table('&lt;Title&gt;', $table);
-    $console->table('&lt;Title&gt;', $table, $header);</code></pre></div>
+    $console->table('<Title>', $table);
+    $console->table('<Title>', $table, $header);
 
 
 Stack Traces
 ------------
 
-        <div class="code"><pre><code selector="console-api-code-run-target-selector" run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/Traces" class="chili-lang-php">$console->trace('&lt;Label&gt;');</code></pre></div>
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/Traces"}
+    $console->trace('<Label>');
 
 
-Console API - Groups
---------------------
+Groups
+------
 
 Logging to a group by name:
-        <div class="code"><pre><code selector="console-api-code-run-target-selector" run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/LogToGroup" class="chili-lang-php">$console->group('&lt;Name&gt;', '&lt;Title&gt;')-> [Console API]</code></pre></div>
-    
-Directing multiple messages to a group context:
-        <div class="code"><pre><code selector="console-api-code-run-target-selector" run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/GroupContext" class="chili-lang-php">$group = $console->group('&lt;Name&gt;', '&lt;Title&gt;')->open();
-    $console-> [Console API]
-    $group->close();</code></pre></div>
-    
-INFO: Specifying a *Name* is optional.
 
-INFO: If the *Title* argument is not provided the first message logged to the group becomes the title.
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/LogToGroup"}
+    $console->group('<Name>', '<Title>')-> [Console API]
+
+Directing multiple messages to a group context:
+
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/GroupContext"}
+    $group = $console->group('<Name>', '<Title>')->open();
+    $console-> [Console API]
+    $group->close();
+
+INFO: Specifying a `<Name>` is optional.
+
+INFO: If the `<Title>` argument is not provided the first message logged to the group becomes the title.
 
 NOTE: When opening groups they must be closed in the same order!
 
-NOTE: You can log to the same group in different parts of an application without keeping track of the $group variable as long as the group name is the
+NOTE: You can log to the same group in different parts of an application without keeping track of the `$group` variable as long as the group name is the
 same. The group will appear in the group hierarchy (if multiple nested groups) depending on where a group is first logged.
 
 
 Conditional Logging
 -------------------
 
-NOTE: Conditional logging is currently **only supported by DeveloperCompanion when logging to a *request context* and inspecting via the
+NOTE: Conditional logging is currently **only supported by [DeveloperCompanion](Clients#devcomp) when logging to the `request` target and inspecting via the
 *Companion Window***!
-    
+
 By default all logged messages are sent to the client. To conditionally send specific messages, only if requested by client, one or multiple messages
-may be wrapped in an *on()* handler.
-    
+may be wrapped in an `on()` handler.
+
 Conditional logging by name:
 
-        <div class="code"><pre><code selector="console-api-code-run-target-selector" run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/ConditionalByName" class="chili-lang-php">$console->on('&lt;Name&gt;')-> [Console API]</code></pre></div>
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/ConditionalByName"}
+    $console->on('<Name>')-> [Console API]
 
 Directing multiple messages to a conditional context:
 
-        <div class="code"><pre><code selector="console-api-code-run-target-selector" run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/ConditionalContext" class="chili-lang-php">$on = $console->on('&lt;Name&gt;')->open();
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/ConditionalContext"}
+    $on = $console->on('<Name>')->open();
     $console-> [Console API]
-    $on->close();</code></pre></div>
-    
+    $on->close();
+
 NOTE: When opening contexts they must be closed in the same order!
-        
+
 Declared conditions may be used for flow control:
-    
-        <div class="code"><pre><code selector="console-api-code-run-target-selector" run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/ConditionalFlowControl" class="chili-lang-php">if($console->on('&lt;Name&gt;')->is(true)) {
+
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/ConditionalFlowControl"}
+    if($console->on('<Name>')->is(true)) {
         // conditionally execute
-    }</code></pre></div>
-    
-INFO: It is **imperative** that this feature is only used for **debugging and development related purposes**. It will only ever evaluate to *TRUE* if
+    }
+
+INFO: It is **imperative** that this feature is only used for **debugging and development related purposes**. It will only ever evaluate to `TRUE` if
 an authorized client is detected and the condition is enabled on the client.
 
 
-Package API
-===========
+Insight/Package API
+===================
+{: id="package-api"}
 
-The *Package API* is used to record information about the application package.
-    
-        <div class="code"><pre><code class="chili-lang-php">$package = FirePHP::to('package');</code></pre></div>
+The *Insight/Package API* is used to record information about the application package.
+
+    CODE: {"lang":"php"}
+    $package = FirePHP::to('package');
 
 
 Quick Links
 -----------
 
 To add links for a package that will be displayed as buttons in the *Companion Window* use:
+
     
-        <div class="code"><pre><code run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?x-insight=inspect&action=run&snippet=insight-devcomp/snippets/Package-QuickLinks" class="chili-lang-php">$package->addQuickLink('Link 1', 'http://www.firephp.org/');
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?x-insight=inspect&action=run&snippet=insight-devcomp/snippets/Package-QuickLinks"}
+    $package->addQuickLink('Link 1', 'http://www.firephp.org/');
     // or
     $package->addQuickLink('Link 2', array(
         'target' => 'window',  // tab (default), window or hidden
         'url' => 'http://www.firephp.org/'
-    ));</code></pre></div>
-        
-NOTE: Links added this way will augment links already added via the *package.json* config file. See [here](/Install/#Configuration Options) for more info.
+    ));
+
+NOTE: Links added this way will augment links already added via the `package.json` config file. See [here](Configuration/Advanced) for more info.
 
 
-FirePHP API
-===========
+Insight/Control API
+===================
 
-INFO: Use the following drop-down to set where the examples should appear.
+The *Insight/Control API* is used to control the client in the context of the request.
 
-        <select id="firephp-api-code-run-target-selector" class="monospaced">
-          <option value="page">$console = FirePHP::to('page')->console(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -> Firebug Console</option>
-          <option value="request">$console = FirePHP::to('request')->console(); &nbsp;&nbsp; -> Companion Window</option>
-        </select>    
+    CODE: {"lang":"php"}
+    $controller = FirePHP::to('controller');
+
+
+Triggers
+--------
+
+Schedule an *inspect* event for the current request which will be executed by the client once the entire response is received by the browser.
+This will cause the client to focus on the data sent while the request executed.
+
+    CODE: {"lang":"php"}
+    $controller->triggerInspect();
+
+NOTE: There are [several ways](Workflow#inspecting-requests) to inspect a given request.
+
+
+Insight/FirePHP API
+===================
     
-NOTE: If logging to *Firebug* make sure you have the *Console*, *Net* and *Insight* panels enabled.
-    
-The *FirePHP API* provides utility functions to make development and monitoring easier.
-    
-        <div class="code"><pre><code class="chili-lang-php">$firephp = FirePHP::plugin('firephp');</code></pre></div>
+The *Insight/FirePHP API* provides utility functions to make development and monitoring easier.
+
+    CODE: {"lang":"php"}
+    $firephp = FirePHP::plugin('firephp');
 
 
-FirePHP declareP"></a>Convenience Logging for Ad-hock Debugging
----------------------------------------------------------------
+Convenience Logging for Ad-hock Debugging
+-----------------------------------------
 
-Fumbling with *$console* objects can become tedious if you just want to quickly log a variable during development. A *p()* shortcut function can be made
+Fumbling with `$console` objects can become tedious if you just want to quickly log a variable during development. A `p()` shortcut function can be made
 available to easily *print* variables to a console.
+
     
-        <div class="code"><pre><code run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/FirePHP-declareP" class="chili-lang-php">// Log p() messages to the Firebug Console
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/FirePHP-declareP"}
+    // Log p() messages to the Firebug Console
     $firephp->declareP();
     
     // Log p() messages to a request console called Ad-hock
@@ -387,82 +382,80 @@ available to easily *print* variables to a console.
     
     // Log p() messages to the provided $console
     $console = FirePHP::to('request')->console('Debug');
-    $firephp->declareP($console, true);</code></pre></div>
-        
-INFO: The second argument to *declareP()* specifies that an *inspect* for the request should be [triggered](#Control API). This will automatically open
-the companion window and load the request data as soon as the *p()* function is used.
+    $firephp->declareP($console, true);
+
+INFO: The second argument to `declareP()` specifies whether an *inspect* for the request should be [triggered](Insight#control-api). This will automatically open
+the *Companion Window* and load the request data as soon as the `p()` function is used.
 
 Once declared, to *print* variables simply use:
 
-        <div class="code"><pre><code class="chili-lang-php">p($variable); // or
-     p($variable, 'Label');</code></pre></div>
-        
-NOTE: The *p()* calls **should not stay in your code** and are intended for use during development only!
+    CODE: {"lang":"php"}
+    p($variable); // or
+    p($variable, 'Label');
+
+NOTE: The `p()` calls **should not stay in your code** and are intended for use during development only!
 
 
 Information
 -----------
 
-Log the current FirePHP version to a *FirePHP* console.
-    
-        <div class="code"><pre><code selector="firephp-api-code-run-target-selector" run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/FirePHP-LogVersion" class="chili-lang-php">$firephp->logVersion(); // or
-    $firephp->logVersion($console);</code></pre></div>
+Log the current *FirePHP* version to a *FirePHP* console.
+
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/FirePHP-LogVersion"}
+    $firephp->logVersion(); // or
+    $firephp->logVersion($console);
 
 
 Recording Environment
 ---------------------
 
 Send information about the PHP environment to an *Environment* console.
-    
-        <div class="code"><pre><code selector="firephp-api-code-run-target-selector" run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/FirePHP-RecordEnvironment" class="chili-lang-php">$firephp->recordEnvironment(); // or
-    $firephp->recordEnvironment($console);</code></pre></div>
+
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/FirePHP-RecordEnvironment"}
+    $firephp->recordEnvironment(); // or
+    $firephp->recordEnvironment($console);
 
 
 Constants
 =========
-
+{: id="constants"}
 
 Insight Constants
 -----------------
-        
-        <div class="code"><pre><code class="chili-lang-php">define('INSIGHT_CONFIG_PATH', &lt;string&gt;);
-    define('INSIGHT_IPS', &lt;string&gt;);
-    define('INSIGHT_AUTHKEYS', &lt;string&gt;);
-    define('INSIGHT_PATHS', &lt;string&gt;);
-    define('INSIGHT_SERVER_PATH', &lt;string&gt;);</code></pre></div>
-        
-See [Install](Install/#Inclusion) for more information.
+
+    CODE: {"lang":"php"}
+    define('INSIGHT_CONFIG_PATH', <string>);
+    define('INSIGHT_IPS', <string>);
+    define('INSIGHT_AUTHKEYS', <string>);
+    define('INSIGHT_PATHS', <string>);
+    define('INSIGHT_SERVER_PATH', <string>);
+
+See [Install](Install) for more information.
 
 
 FirePHP Constants
 -----------------
-        
-        <div class="code"><pre><code class="chili-lang-php">define('FIREPHP_ACTIVATED', &lt;boolean&gt;);</code></pre></div>
-        
-May be set to *FALSE* **prior** to <a href="../Install/#Inclusion">including FirePHP</a> to force-deactivate FirePHP. This will cause all logging
-calls to be ignored on the server and no data will be sent to the client as if FirePHP was never installed on the server.
-        
-If the constant is not set prior to including FirePHP it will be automatically set to *TRUE* (if client detected, *FALSE* otherwise) when FirePHP
-loads and can be used in application code to enable logging and debugging facilities as needed if applicable.
-   
-        <div class="code"><pre><code class="chili-lang-php">if(FIREPHP_ACTIVATED) ...</code></pre></div>
+
+    CODE: {"lang":"php"}
+    define('FIREPHP_ACTIVATED', <boolean>);
     
-If set to *TRUE* **prior** to [including FirePHP](/Install/#Inclusion), FirePHP will be force-activated even if no authorized client is detected.
-if no authorized client is detected, data will be collected but not exposed. This is useful when using a payload listener to write the data to disk
-(or alternate storage) for later access. See [Advanced Features](#Advanced Features) for more information.
+May be set to `FALSE` **prior** to [including FirePHP](Install) to force-deactivate *FirePHP*. This will cause all logging
+calls to be ignored on the server and no data will be sent to the client as if *FirePHP* was never installed on the server.
+
+If the constant is not set prior to including *FirePHP* it will be automatically set to `TRUE` (if client detected, `FALSE` otherwise) when *FirePHP*
+loads and can be used in application code to enable logging and debugging facilities as needed if applicable.
+
+    CODE: {"lang":"php"}
+    if(FIREPHP_ACTIVATED) ...
+
+If set to `TRUE` **prior** to [including FirePHP](Install), *FirePHP* will be force-activated even if no authorized client is detected.
+If no authorized client is detected, data will be collected but not exposed. This is useful when using a payload listener to write the data to disk
+(or alternate storage) for later access. See [Advanced Features](Insight#advanced-features) below for more information.
 
 
 Advanced Features
 =================
-
-INFO: Use the following drop-down to set where the examples should appear.
-    
-        <select id="advanced-features-code-run-target-selector" class="monospaced">
-          <option value="page">$console = FirePHP::to('page')->console(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -> Firebug Console</option>
-          <option value="request">$console = FirePHP::to('request')->console(); &nbsp;&nbsp; -> Companion Window</option>
-        </select>    
-    
-NOTE: If logging to *Firebug* make sure you have the *Console*, *Net* and *Insight* panels enabled.
+{: id="advanced-features"}
 
 
 Payload Listener
@@ -470,19 +463,20 @@ Payload Listener
 
 A payload listener may be registered that will fire at the end of the request. The listener will be provided with all the data collected during the request.
 This is useful in cases where the data should be written to disk or alternate storage for later debugging purposes.
-    
-NOTES: Typically data will only be collected if an authorized client is detected. To force-activate data collection use the *FIREPHP_ACTIVATED* constant.
-See [Constants](#Constants).
-        
-        <div class="code"><pre><code selector="advanced-features-code-run-target-selector" run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/PayloadListener" class="chili-lang-php">define('FIREPHP_ACTIVATED', true);
+
+NOTES: Typically data will only be collected if an authorized client is detected. To force-activate data collection use the `FIREPHP_ACTIVATED` constant.
+See [Constants](Insight#constants).
+
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/PayloadListener"}
+    define('FIREPHP_ACTIVATED', true);
     require_once('FirePHP/Init.php');        
     class PayloadListener {
         public function onPayload($request, $payload) {
             echo($payload);
         }
     }
-    Insight_Helper::getInstance()->registerListener('payload', new PayloadListener());</code></pre></div>
-   
+    Insight_Helper::getInstance()->registerListener('payload', new PayloadListener());
+
 To send the collected payload to a client (at a later point in time) see *Send Raw Payload* below.
 
 
@@ -491,5 +485,6 @@ Send Raw Payload
 
 Previously collected payload data (see *Payload Listener* above) may be relayed to a client as follows:
 
-        <div class="code"><pre><code selector="advanced-features-code-run-target-selector" run="/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/RelayPayload" class="chili-lang-php">require_once('FirePHP/Init.php');
-    Insight_Helper::getInstance()->relayPayload($payload)</code></pre></div>
+    CODE: {"lang":"php","run":"http://reference.developercompanion.com/Tools/FirePHPCompanion/Run/Examples/TestRunner/?action=run&snippet=insight-devcomp/snippets/RelayPayload"}
+    require_once('FirePHP/Init.php');
+    Insight_Helper::getInstance()->relayPayload($payload)

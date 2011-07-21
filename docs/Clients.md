@@ -30,6 +30,7 @@ All **core features** as previously provided by the *FirePHP Firefox Extension* 
 ![DeveloperCompanion Install Button](http://developercompanion.com/resources/images/devcomp-install_v2.png){: href="http://developercompanion.com/do-install" resize="false" align="center"}
 
 INFO: If [Firebug](http://getfirebug.com/) is installed, messages may be routed to the *Firebug* [Console](http://getfirebug.com/commandline).
+Make sure *Firebug* is open and the *Console* and *Net* panels enabled!
 
 *DeveloperCompanion* includes additional opt-in features aimed at making developers highly efficient. Licensing
 proceeds support the further development of *FirePHP* and [related technologies](http://www.christophdorn.com/OpenSource/) as well as
