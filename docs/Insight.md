@@ -1,13 +1,15 @@
 Insight Intelligence System
 ===========================
 
-[Insight](http://www.christophdorn.com/Research/#insight) is an intelligence system used to gather and aggregate internal 
+[Insight](http://www.christophdorn.com/Research/#insight) is an intelligence system used to gather, aggregate and display internal 
 information from a running application. 
 The data is encoded in a language agnostic JSON-based object graph that can be transmitted and rendered by developer 
 tools such as integrated development environments, monitoring services and debugging inspectors.
 
 The insight system is being incubated as part of [DeveloperCompanion](Clients#devcomp) and there is a PHP 
 implementation bundled with the *FirePHP 1.0* release.
+
+See [Concepts](Concepts) for an overview of how *Insight* fits into the request flow.
 
 PLANNED: More documentation on *Insight* will be made available in time.
 

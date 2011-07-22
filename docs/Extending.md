@@ -1,4 +1,10 @@
-Extending FirePHP
+Server Extensions
+=================
+
+TODO
+
+
+Client Extensions
 =================
 
 TODO
