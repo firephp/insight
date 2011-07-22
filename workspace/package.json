@@ -8,6 +8,14 @@
         "import": {
             "location": "./",
             "module": "/scripts/import.js"
+        },
+        "build": {
+            "location": "./",
+            "module": "/scripts/build.js"
+        },
+        "publish": {
+            "location": "./",
+            "module": "/scripts/publish.js"
         }
     },
     "dependencies": [

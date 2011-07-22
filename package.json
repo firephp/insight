@@ -27,7 +27,7 @@
                 "github": "cadorn"
             }
         }
-    ]
+    ],
     "dependencies": [
         {
             "id": "github.com/pinf/insight-php/"
