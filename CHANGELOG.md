@@ -34,6 +34,11 @@ TODO:
   * Enhancement: Add new ->details()-> method to log data to be displayed when log line expanded
   * Change: Disable $firephp->registerErrorHandler(), registerExceptionHandler() and registerAssertionHandler() when using FirePHP 1.0 proper.
 
+2011-07-22 - Release Version: 1.0b1rc1
+
+  * Refactor: Project structure, build and publishing scripts (via PINF now)
+  * Docs: Revised and many additions; published to http://docs.sourcemint.org/firephp.org/firephp/1/-docs/
+
 2011-06-02 - Release Version: 0.0.0master1106021548
 
   * Enhancement: Dynamic class patching
