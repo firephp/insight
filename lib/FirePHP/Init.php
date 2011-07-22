@@ -62,7 +62,7 @@ function FirePHP__main() {
         FirePHP__autoload('FirePHP_Insight');
 
         // ensure the FirePHP class included has the correct version
-        $version = '0.3';    // @pinf replace '0.3' with '%%package.version%%'
+        $version = '0.3';    // @pinf replace '0.3' with '%%VERSION%%'
         if(FirePHP::VERSION!=$version) {
             throw new Exception("The included FirePHP class has the wrong version! This is likely due to an old version of FirePHP still being on the include path. The old version must be removed or the FirePHP 1.0 classes must have precedence on the include path!");
         }
@@ -84,7 +84,7 @@ function FirePHP__main() {
         }
 
         class FirePHP {
-            const VERSION = '0.3';    // @pinf replace '0.3' with '%%package.version%%'
+            const VERSION = '0.3';    // @pinf replace '0.3' with '%%VERSION%%'
             const LOG = 'LOG';
             const INFO = 'INFO';
             const WARN = 'WARN';

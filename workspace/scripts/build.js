@@ -52,8 +52,12 @@ function buildZipArchive(callback)
 
 	FILE.mkdirs(targetBasePath, 0775);
 
-	SYSTEM.exec("cp -Rf " + pkgPath + "/lib " + targetBasePath, function()
+	SYSTEM.exec("rsync -r --copy-links --exclude \"- .DS_Store\" --exclude \"- .git/\" --exclude \"- .tmp_*\" " + pkgPath + "/lib " + targetBasePath, function()
 	{
+		replaceVariablesInFile(targetBasePath + "/lib/FirePHP/Init.php");
+		replaceVariablesInFile(targetBasePath + "/lib/FirePHPCore/FirePHP.class.php");
+		replaceVariablesInFile(targetBasePath + "/lib/FirePHPCore/FirePHP.class.php4");
+		
 		next1();
 	});		
 	
@@ -86,45 +90,74 @@ function buildZipArchive(callback)
 
 function buildPharArchive(callback)
 {
-	callback();
-	
-	return;
-	
-	var targetBasePath = buildPath + "/pear";
+	var targetBasePath = buildPath + "/phar",
+		pharName = "FirePHP";
 
 	FILE.mkdirs(targetBasePath, 0775);
 
-	SYSTEM.exec("cp -Rf " + pkgPath + "/lib/FirePHPCore/* " + targetBasePath, function()
+	SYSTEM.exec("rsync -r --copy-links --exclude \"- .DS_Store\" --exclude \"- .git/\" --exclude \"- .tmp_*\" " + pkgPath + "/lib " + targetBasePath, function()
 	{
+		replaceVariablesInFile(targetBasePath + "/lib/FirePHP/Init.php");
+		replaceVariablesInFile(targetBasePath + "/lib/FirePHPCore/FirePHP.class.php");
+		replaceVariablesInFile(targetBasePath + "/lib/FirePHPCore/FirePHP.class.php4");
+		
 		next1();
 	});		
 
 	function next1()
 	{
-		var content = FILE.read(tplPath + "/pear.package.tpl.xml");
-
-		var date = new Date();
-		content = content.replace(/%%DATE%%/g, date.getFullYear() + "-" + UTIL.padBegin(date.getMonth()+1, 2, "0") + "-" + date.getDate());
-		content = content.replace(/%%VERSION%%/g, version);
-		content = content.replace(/%%STABILITY%%/g, "stable");
-
-		FILE.write(targetBasePath + "/package.xml", content);
+	    // Write phar setup file and packaging script
+	    // @see http://blog.calevans.com/2009/07/19/lessons-in-phar/
 		
-		next2();
-	}
+		FILE.write(targetBasePath + "/stub.php", [
+	        "<?php",
+	        "__HALT_COMPILER();"
+	    ].join("\n"));
 
-	function next2()
-	{
-		SYSTEM.exec("pear channel-discover pear.firephp.org", function(stdout)
+		FILE.write(targetBasePath + "/create-phar.php", [
+	        "<?php",
+	        "$phar = new Phar('" + pharName + "-" + version + ".phar" + "', 0, '" + pharName + ".phar" + "');",
+	        "$phar->compressFiles(Phar::GZ);",
+	        "$phar->setSignatureAlgorithm(Phar::SHA1);",
+	        "$phar->buildFromDirectory('" + targetBasePath + "/lib" + "');",
+	        "$phar->setStub($phar->createDefaultStub('stub.php'));"
+	    ].join("\n"));
+
+		SYSTEM.exec("cd " + targetBasePath + " ; php create-phar.php", function(stdout, stderr)
 		{
 			console.log(stdout);
-
-			SYSTEM.exec("cd " + targetBasePath + "; pear package package.xml", function(stdout)
-			{
-				console.log(stdout);
-
-				callback();
-			});
+			
+			console.log(stderr);
+			
+			callback();
 		});		
 	}
+}
+
+function replaceVariablesInFile(path)
+{
+	var content = FILE.read(path);
+
+	// @pinf replace '0.3' with '%%VERSION%%'
+    var re1  = /\n(.*)\/\/\s*@pinf\s(.*)\n/g;
+    var match1;
+    while (match1 = re1.exec(content)) {
+        var rule = match1[2].match(/^replace (.*?) with (.*)$/);
+        if(rule) {
+            // replace variables in rule
+            var re2  = /%%([^%]*)%%/g;
+            var match2;
+            while (match2 = re2.exec(rule[2])) {
+                var value;
+                if(match2[1]=="VERSION") {
+                    value = version;
+                }
+                rule[2] = rule[2].replace(match2[0], value);
+            }
+            match1[1] = match1[1].replace(rule[1], rule[2]);
+            content = content.replace(match1[0], "\n"+match1[1]+"\n");
+        }
+    }
+    
+    FILE.write(path, content);
 }
