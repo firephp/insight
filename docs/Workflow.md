@@ -43,47 +43,47 @@ To inspect a **request** you need to load it into the *Companion*. There are sev
 
 NOTE: The debug data is always tracked (if *Insight* is activated and authorized) but needs to be loaded into the companion to be viewable.
 
-### Companion Workspace Request Table
-
-When the *Workspace* for an application is selected in [DeveloperCompanion](Clients#devcomp) all requests are tracked. Double-click
-on a request to load it into the *Request Inspector*.
-
-### `x-insight` URL Parameter
-
-Append `x-insight=inspect` to any *GET* or *POST* URL.
-
-    CODE: {"lang":"php"}
+  * **Companion Workspace Request Table**
     
-    // GET or POST URL parameter
-    ...?x-insight=inspect
-
-### `x-insight` HTTP Request Header
-
-Set an `x-insight: inspect` HTTP header on the *request*.
-
-    CODE: {"lang":"php"}
+    When the *Workspace* for an application is open in [DeveloperCompanion](Clients#devcomp) all requests are displayed in the
+    *Requests Table*. Double-click on a request to load it into the *Request Inspector*.
     
-    // HTTP Request Header
-    x-insight: inspect
-
-### `x-insight` HTTP Response Header
-
-Set an `x-insight: inspect` HTTP header for the *response*.
-
-    CODE: {"lang":"php"}
+  * **`x-insight` URL Parameter**
     
-    header('x-insight: inspect');
-
-### PHP Code Trigger
-
-Trigger an inspect from the PHP script.
-
-    CODE: {"lang":"php"}
+    Append `x-insight=inspect` to any *GET* or *POST* URL.
     
-    $console = FirePHP::to('page')->console();
-    $console->show();
-    // or
-    $controller = FirePHP::to('controller');
-    $controller->triggerInspect();
-
-INFO: See [Insight/Control API](API/Insight#control-api) for more information.
+        CODE: {"lang":"php"}
+        
+        // GET or POST URL parameter
+        ...?x-insight=inspect
+        
+  * **`x-insight` HTTP Request Header**
+    
+    Set an `x-insight: inspect` HTTP header on the *request*.
+    
+        CODE: {"lang":"php"}
+        
+        // HTTP Request Header
+        x-insight: inspect
+    
+  * **`x-insight` HTTP Response Header**
+    
+    Set an `x-insight: inspect` HTTP header for the *response*.
+    
+        CODE: {"lang":"php"}
+        
+        header('x-insight: inspect');
+    
+  * **PHP Code Trigger**
+    
+    Trigger an inspect from the PHP script.
+    
+        CODE: {"lang":"php"}
+        
+        $console = FirePHP::to('page')->console();
+        $console->show();
+        // or
+        $controller = FirePHP::to('controller');
+        $controller->triggerInspect();
+    
+    INFO: See [Insight/Control API](API/Insight#control-api) for more information.
