@@ -22,15 +22,15 @@ DeveloperCompanion
 ------------------
 {: id="devcomp"}
 
-[DeveloperCompanion](http://developercompanion.com/) is the **preferred client** for *FirePHP 1.0* and **implements the full
+[DeveloperCompanion](http://developercompanion.com/) is the **preferred client** for *FirePHP 1.0* on **Firefox 4+** and **implements the full
 _[Insight](Insight)_ and thus _FirePHP 1.0_ feature set**.
 
 All **core features** as previously provided by the *FirePHP Firefox Extension* are free to be used.
 
 ![DeveloperCompanion Install Button](http://developercompanion.com/resources/images/devcomp-install_v2.png){: href="http://developercompanion.com/do-install" resize="false" align="center"}
 
-INFO: If [Firebug](http://getfirebug.com/) is installed, messages may be routed to the *Firebug* [Console](http://getfirebug.com/commandline).
-Make sure *Firebug* is open and the *Console* and *Net* panels enabled!
+INFO: **If [Firebug 1.5+](http://getfirebug.com/) is installed, messages may be routed to the *Firebug* [Console](http://getfirebug.com/commandline).
+Make sure *Firebug* is open and the *Console* and *Net* panels are enabled!**
 
 *DeveloperCompanion* includes additional opt-in features aimed at making developers highly efficient. Licensing
 proceeds support the further development of *FirePHP* and [related technologies](http://www.christophdorn.com/OpenSource/) as well as
@@ -45,7 +45,8 @@ FirePHP Firefox Extension
 -------------------------
 {: id="firephp"}
 
-NOTICE: The *FirePHP Firefox Extension* hosted at [https://addons.mozilla.org/en-US/firefox/addon/firephp/](https://addons.mozilla.org/en-US/firefox/addon/firephp/) is **deprecated**!
+NOTICE: The *FirePHP Firefox Extension* hosted at [https://addons.mozilla.org/en-US/firefox/addon/firephp/](https://addons.mozilla.org/en-US/firefox/addon/firephp/) 
+is **deprecated** and **will NOT work with Firebug 1.8+**. Use *DeveloperCompanion* instead.
 
 The *FirePHP Firefox Extension* is the client to the *FirePHP Server Library* originally written in 2007. Since then, the code has gotten out of hand after 
 numerous compatibility adjustments as *FirePHP*, *Firebug* and *Firefox* evolved over the years. Now that the *FirePHP* project is shifting its focus 100%
