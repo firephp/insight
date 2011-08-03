@@ -281,7 +281,7 @@ Conditional Logging
 -------------------
 
 NOTE: Conditional logging is currently **only supported by [DeveloperCompanion](Clients#devcomp) when logging to the `request` target and inspecting via the
-*Companion Window***!
+_Companion Window_**!
 
 By default all logged messages are sent to the client. To conditionally send specific messages, only if requested by client, one or multiple messages
 may be wrapped in an `on()` handler.

@@ -103,7 +103,8 @@ When adding a *Workspace* in *DeveloperCompanion* the setup is automatically tes
 
 If the *Workspace* was already setup but things are not working all of a sudden, the connection can be manually tested:
 
-NOTE: This requires a DeveloperCompanion license.
+NOTE: This requires a DeveloperCompanion license. If you do not have a license you can delete the workspace and re-create 
+it as the connection will be tested when setting up a new *Workspace*.
 
   1. Open *DeveloperCompanion* by clicking on the icon in the browser status bar.
   2. Select the first tab (that is the *home* or *companion* tab) and then *Workspaces*.
@@ -112,24 +113,24 @@ NOTE: This requires a DeveloperCompanion license.
 
 If you need additional help you can get support [here](OpenSource#support).
 
-One of the **most common problems** is an incorrect setting for the *<ServerScript.php>* path. This is evidenced by a
+One of the **most common problems** is an incorrect setting for the */<ServerScript.php>* path. This is evidenced by a
 *No wildfire messages detected* message.
 
-The *<ServerScript.php>* path must be set to the path of a PHP script relative to the hostname that includes *FirePHP* just like the
+The */<ServerScript.php>* path must be set to the path of a PHP script relative to the hostname that includes *FirePHP* just like the
 rest of your application does. It typically refers to the homepage of the application. The path is set as follows depending on which configuration
 method is used:
 
-### Minimal Configuration
+### Configure: constants
 
     CODE: {"lang":"php"}
     
     define('INSIGHT_SERVER_PATH', '/<ServerScript.php>');
 
-### package.json based Configuration
+### Configure: files
 
     CODE: {"lang":"php"}
     
-    {
+    package.json ~ {
       "implements": {
         "cadorn.org/insight/@meta/config/0": {
           "server": {
@@ -138,7 +139,7 @@ method is used:
         }
       }
     }
-   
+
 For more information about all configuration options see [Install](Install).
 
 
@@ -319,6 +320,44 @@ Log messages for a page that issued a HTTP redirect can also be kept in the *Fir
 
   * The *Persist* toggle must be activated in the *Firebug Console* panel.
   * Messages must be logged to the `page` target. See [API/Insight](API/Insight#to).
+
+
+How do I stop `E_NOTICE` errors from showing up in the console with every request?
+----------------------------------------------------------------------------------
+{: id="using-firephp-9"}
+
+*FirePHP* by default [captures all errors](Features) configured for [error_reporting](http://www.php.net/manual/en/errorfunc.configuration.php#ini.error-reporting) 
+in the [php.ini](http://www.php.net/manual/en/configuration.file.php) file even if 
+[display_errors](http://www.php.net/manual/en/errorfunc.configuration.php#ini.display-errors) 
+is turned off.
+
+To turn off `E_NOTICE` errors you have several options:
+
+  * Set `error_reporting` in *php.ini* to `E_ALL & ~E_NOTICE`. This will completely disable `E_NOTICE` errors for all applications.
+  
+  * PLANNED: Disable **application wide** (for the connected client) using: `FirePHP::plugin('firephp')->scope('app')->showErrors(E_NOTICE, false)`;
+  
+  * PLANNED: Disable **url specific** (for the connected client) using: `FirePHP::plugin('firephp')->scope('url')->showErrors(E_NOTICE, false)`;
+  
+  * PLANNED: Disable **application wide** using [DeveloperCompanion](Clients#devcomp) *Application Inspector*. Requires license.
+  
+  * Disable **url specific** using [DeveloperCompanion](Clients#devcomp) *Request Inspector*:
+    
+    NOTE: A *DeveloperCompanion* license is required.
+    
+      1. Open *DeveloperCompanion*, launch or select the appropriate *Workspace* and make sure the *Application Inspector* is active.
+         
+         If you see a *Request* box below the *Application* box exit the *Request Inspector* by clicking on the red *X* to the left.
+      
+      2. Using the browser make a request to the **URL** you wish to remove the errors for. The request should show up in the *Requests*
+         table of the *Application Inspector*. Double-click the request to launch the *Request Inspector*.
+      
+      3. In the *Request Inspector* locate the *on()* panel (bottom right) and resize it to fit all content.
+      
+      4. Check *Insight: Show all PHP Errors (except:)* and click *Reload* at the top of the window in the *Request* box. This will reload
+         the request and ask the server to list all error types.
+      
+      5. Check `E_NOTICE`.
 
 
 About [DeveloperCompanion](Clients#devcomp)

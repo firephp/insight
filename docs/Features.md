@@ -24,7 +24,8 @@ Error & Assertion Capturing
 
 By default, when FirePHP is included, it captures all errors according to the 
 [error_reporting](http://www.php.net/manual/en/errorfunc.configuration.php#ini.error-reporting)
-ini option and sends these to the client even if [display_errors](http://www.php.net/manual/en/errorfunc.configuration.php#ini.display-errors) 
+[ini](http://www.php.net/manual/en/configuration.file.php) option and sends these to the client even if 
+[display_errors](http://www.php.net/manual/en/errorfunc.configuration.php#ini.display-errors) 
 is turned off. Assertions errors are also captured and sent to the client.
 
 TIP: To capture **all** errors irrespective of the *error_reporting* ini option use the [DeveloperCompanion client](Clients#devcomp) and 

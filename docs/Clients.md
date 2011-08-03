@@ -46,11 +46,12 @@ FirePHP Firefox Extension
 {: id="firephp"}
 
 NOTICE: The *FirePHP Firefox Extension* hosted at [https://addons.mozilla.org/en-US/firefox/addon/firephp/](https://addons.mozilla.org/en-US/firefox/addon/firephp/) 
-is **deprecated** and **will NOT work with Firebug 1.8+**. Use *DeveloperCompanion* instead.
+is **deprecated**. Use *DeveloperCompanion* instead if you can.
 
 The *FirePHP Firefox Extension* is the client to the *FirePHP Server Library* originally written in 2007. Since then, the code has gotten out of hand after 
 numerous compatibility adjustments as *FirePHP*, *Firebug* and *Firefox* evolved over the years. Now that the *FirePHP* project is shifting its focus 100%
-to the server library only and multiple clients are desired it has been decided to phase out the extension.
+to the server library only and multiple clients are desired it has been decided to phase out the extension. That being said there will continue to
+be maintenance releases for the *FirePHP Firefox Extension* to keep it compatible with *Firefox* and *Firebug*.
 
 In the interest of supporting [Insight](Insight) and the stack of technologies being developed (see *FireConsole* below) it has been decided to direct existing 
 users of the *FirePHP Firefox Extension* to upgrade to [DeveloperCompanion](http://developercompanion.com/) which implements the

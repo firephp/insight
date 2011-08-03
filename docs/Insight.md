@@ -11,6 +11,8 @@ implementation bundled with the *FirePHP 1.0* release.
 
 See [Concepts](Concepts) for an overview of how *Insight* fits into the request flow.
 
+See [Protocols](Protocols) for an overview of how *Insight* data is transmitted.
+
 PLANNED: More documentation on *Insight* will be made available in time.
 
 Implementations
