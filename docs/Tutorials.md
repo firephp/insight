@@ -72,6 +72,7 @@ Zend Framework
 Introductory
 ------------
 
+  * [Aug 2009 - Video: Debugging Zend Projects with Firebug](http://www.zendcasts.com/debugging-zend-projects-with-firebug/2009/08/) (www.zendcasts.com)
   * [Apr 2009 - Zend Framework 101: Zend_Log](http://www.phpriot.com/articles/zend-log/5) (www.phpriot.com)
   * [Feb 2009 - Setting up logging with Firebug and FirePHP in Zend Framework 1.7.5](http://blog.andrewhavens.com/2009/02/26/setting-up-logging-with-firephpfirebug-in-zend-framework-175/) (blog.andrewhavens.com)
   * [Feb 2009 - Logging with Zend Framework and FirePHP](http://www.oneangrydwarf.co.uk/web/logging-with-zend-framework-and-firephp/) (www.oneangrydwarf.co.uk)

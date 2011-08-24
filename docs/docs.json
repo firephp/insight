@@ -111,6 +111,10 @@
                     "path": "/Integrations.md"
                 },
                 {
+                    "label": "Troubleshooting",
+                    "path": "/Troubleshooting.md"
+                },
+                {
                     "label": "FAQ",
                     "path": "/FAQ.md"
                 },

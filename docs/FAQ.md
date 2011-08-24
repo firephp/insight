@@ -97,50 +97,7 @@ It is not working! How do I troubleshoot?
 -----------------------------------------
 {: id="installing-firephp-4"}
 
-The best way to troubleshoot a *FirePHP* installation is to use [DeveloperCompanion](Clients#devcomp) to test the setup.
-
-When adding a *Workspace* in *DeveloperCompanion* the setup is automatically tested and any errors are displayed in detail.
-
-If the *Workspace* was already setup but things are not working all of a sudden, the connection can be manually tested:
-
-NOTE: This requires a DeveloperCompanion license. If you do not have a license you can delete the workspace and re-create 
-it as the connection will be tested when setting up a new *Workspace*.
-
-  1. Open *DeveloperCompanion* by clicking on the icon in the browser status bar.
-  2. Select the first tab (that is the *home* or *companion* tab) and then *Workspaces*.
-  3. Double-click the workspace you want to test
-  4. When the workspace has launched locate the *Check Workspace Connection* button and click it.
-
-If you need additional help you can get support [here](OpenSource#support).
-
-One of the **most common problems** is an incorrect setting for the */<ServerScript.php>* path. This is evidenced by a
-*No wildfire messages detected* message.
-
-The */<ServerScript.php>* path must be set to the path of a PHP script relative to the hostname that includes *FirePHP* just like the
-rest of your application does. It typically refers to the homepage of the application. The path is set as follows depending on which configuration
-method is used:
-
-### Configure: constants
-
-    CODE: {"lang":"php"}
-    
-    define('INSIGHT_SERVER_PATH', '/<ServerScript.php>');
-
-### Configure: files
-
-    CODE: {"lang":"php"}
-    
-    package.json ~ {
-      "implements": {
-        "cadorn.org/insight/@meta/config/0": {
-          "server": {
-            "path": "/<ServerScript.php>"
-          }
-        }
-      }
-    }
-
-For more information about all configuration options see [Install](Install).
+SEE: [Troubleshooting](Troubleshooting)
 
 
 How do I add multiple authorization keys on the server?

@@ -1,5 +1,5 @@
 
-NOTICE: The information below if taken from the [Quickstart](https://github.com/firephp/quickstart) project.
+NOTICE: The information below is taken from the [Quickstart](https://github.com/firephp/quickstart) project.
 
 Install
 =======

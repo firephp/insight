@@ -20,10 +20,18 @@ Frameworks
 NOTICE: See [http://www.firephp.org/Wiki/](http://www.firephp.org/Wiki/) for all framework integrations until that information has been
 migrated to this page.
 
+### [Symfony 2](https://github.com/symfony/symfony/)
+
+*Symfony 2* has native *FirePHP* support via [Monolog](https://github.com/Seldaek/monolog) based on the [FirePHPCore](Configuration/Traditional) library.
+
+PLANNED: *FirePHP 1.0* support for *Monolog* is planned. See: [https://github.com/Seldaek/monolog/pull/30](https://github.com/Seldaek/monolog/pull/30)
+
+  * Tutorial: [Symfony2 AJAX Monolog FirePHP: The Simple Story](http://www.craftitonline.com/2011/08/symfony2-ajax-monolog-firephp-the-simple-story/)
+
 ### [Zend Framework](http://framework.zend.com/)
 
 *ZendFramework* has native *FirePHP* support based on the [FirePHPCore](Configuration/Traditional) library.
 
-  * [Zend_Wildfire](http://framework.zend.com/manual/en/zend.wildfire.chapter.html): A component that facilitates out of band communication of data. See [github.com/pinf/wildfire](https://github.com/pinf/wildfire).
-  * [Zend_Log_Writer_Firebug](http://framework.zend.com/manual/en/zend.log.writers.html#zend.log.writers.firebug): Redirect log messages to *FirePHP*.
-  * [Zend_Db_Profiler_Firebug](http://framework.zend.com/manual/en/zend.db.profiler.html#zend.db.profiler.profilers.firebug): Profile database queries and send result to *FirePHP*.
+  * Component: [Zend_Wildfire](http://framework.zend.com/manual/en/zend.wildfire.chapter.html): A component that facilitates out of band communication of data. See [github.com/pinf/wildfire](https://github.com/pinf/wildfire).
+  * Component: [Zend_Log_Writer_Firebug](http://framework.zend.com/manual/en/zend.log.writers.html#zend.log.writers.firebug): Redirect log messages to *FirePHP*.
+  * Component: [Zend_Db_Profiler_Firebug](http://framework.zend.com/manual/en/zend.db.profiler.html#zend.db.profiler.profilers.firebug): Profile database queries and send result to *FirePHP*.
