@@ -1,6 +1,10 @@
 
 TODO:
 
+// INTEGRATIONS
+
+  * https://github.com/kemo/kohana-firephp just like https://github.com/Seldaek/monolog/pull/30
+
 // LOW
 
   * Bugfix: Trimmed headers - http://framework.zend.com/issues/browse/ZF-7664
@@ -33,6 +37,9 @@ TODO:
   * Enhancement: Add new ->ok()-> message priority
   * Enhancement: Add new ->details()-> method to log data to be displayed when log line expanded
   * Change: Disable $firephp->registerErrorHandler(), registerExceptionHandler() and registerAssertionHandler() when using FirePHP 1.0 proper.
+  
+  * Enhancement: Get and set application-wide and url specific on() for current user
+  * Enhancement: API for switching off error capturing
 
 2011-07-22 - Release Version: 1.0b1rc1
 
