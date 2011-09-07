@@ -14,6 +14,10 @@ Documentation
 Tests
 =====
 
+Run all tests:
+
+    commonjs -v --script test ./
+
 Toolchain
 ---------
 
