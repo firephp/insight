@@ -27,10 +27,10 @@ On the server, the FirePHP library is needed. It must be configured and included
 Download
 --------
 
-See [Download](Download) for complete information. Current release: **{:pinf.var[cadorn.org/github/firephp-libs/programs/standalone/master].version:}**
+See [Download](Download) for complete information. This release: **{:inject[pinf://./-info/version]:}**
 
-![FirePHP ZIP Download Button](/resources/images/download_zip.png){: href="http://docs.sourcemint.org/cadorn.org/github/firephp-libs/programs/standalone/master/-bundles/firephp.all.zip" resize="false"}
-![FirePHP PHAR Download Button](/resources/images/download_phar.png){: href="http://docs.sourcemint.org/cadorn.org/github/firephp-libs/programs/standalone/master/-bundles/firephp.phar" resize="false"}
+![FirePHP ZIP Download Button](/resources/images/download_zip.png){: href="%%url[pinf://./-bundles/lib.zip]%%" resize="false"}
+![FirePHP PHAR Download Button](/resources/images/download_phar.png){: href="%%url[pinf://./-bundles/lib.phar]%%" resize="false"}
 
 Configure
 ---------
