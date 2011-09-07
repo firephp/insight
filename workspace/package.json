@@ -13,9 +13,9 @@
             "location": "./",
             "module": "/scripts/build.js"
         },
-        "publish": {
+        "test": {
             "location": "./",
-            "module": "/scripts/publish.js"
+            "module": "/scripts/test.js"
         }
     },
     "dependencies": [

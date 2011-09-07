@@ -35,5 +35,26 @@
         {
             "id": "github.com/firephp/firephp-core/"
         }
-    ]
+    ],
+    "implements": {
+        "github.com/pinf/core-js/-meta/strawman/bundles/0.1": {
+            "lib.zip": {
+                "locator": {
+                    "location": "./build/lib.zip"
+                },
+                "scope": "lib",
+                "label": "ZIP Archive",
+                "contentType": "application/zip"
+            },
+            "lib.phar": {
+                "locator": {
+                    "location": "./build/lib.phar"
+                },
+                "scope": "lib",
+                "label": "PHAR Archive",
+                "contentType": "application/zip",
+                "suffix": ".phar"
+            }
+        }
+    }
 }

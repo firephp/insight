@@ -11,6 +11,11 @@ var pkgPath = FILE.dirname(FILE.dirname(FILE.dirname(module.id))),
 	tplPath = pkgPath + "/workspace/tpl",
 	version = false;
 
+exports.getPackagePath = function()
+{
+	return pkgPath;
+}
+
 exports.getBuildPath = function()
 {
 	return buildPath;
@@ -48,7 +53,7 @@ exports.main = function()
 
 function buildZipArchive(callback)
 {
-	var targetBasePath = buildPath + "/FirePHP-" + version;
+	var targetBasePath = buildPath + "/firephp-" + version;
 
 	FILE.mkdirs(targetBasePath, 0775);
 
@@ -70,16 +75,12 @@ function buildZipArchive(callback)
 		var content = FILE.read(tplPath + "/license.tpl.md");
 		FILE.write(targetBasePath + "/LICENSE.md", content);
 
-		FILE.write(buildPath + "/info.json", JSON.encode({
-			version: version
-		}));
-
 		next2();
 	}
 
 	function next2()
 	{
-		SYSTEM.exec("cd " + buildPath + " ; zip -vr FirePHP-" + version + ".zip FirePHP-" + version, function(stdout)
+		SYSTEM.exec("cd " + buildPath + " ; zip -vr lib.zip firephp-" + version, function(stdout)
 		{
 			console.log(stdout);
 
@@ -91,7 +92,7 @@ function buildZipArchive(callback)
 function buildPharArchive(callback)
 {
 	var targetBasePath = buildPath + "/phar",
-		pharName = "FirePHP";
+		pharName = "firephp";
 
 	FILE.mkdirs(targetBasePath, 0775);
 
@@ -129,7 +130,10 @@ function buildPharArchive(callback)
 			
 			console.log(stderr);
 			
-			callback();
+			SYSTEM.exec("mv " + targetBasePath + "/" + pharName + "-" + version + ".phar " + buildPath + "/lib.phar", function(stdout, stderr)
+			{
+				callback();
+			});
 		});		
 	}
 }
