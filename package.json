@@ -1,11 +1,25 @@
 {
     "uid": "https://github.com/firephp/firephp/",
     "name": "firephp",
-    "label": "FirePHP Server Library",
+    "label": "FirePHP 1.0",
+    "description": "FirePHP 1.0 Server Library.",
     "repositories": [
         {
             "type": "git",
             "url": "git://github.com/firephp/firephp.git"
+        }
+    ],
+    "icons": {
+        "64x64": "/resources/images/FirePHP_64.png"
+    },
+    "licenses": [
+        {
+            "scope": "code",
+            "type": "MIT"
+        },
+        {
+            "scope": "docs",
+            "type": "CC-BY-NC-SA"
         }
     ],
     "maintainers": [
@@ -55,6 +69,9 @@
                 "contentType": "application/zip",
                 "suffix": ".phar"
             }
+        },
+        "github.com/pinf/docs-js/-meta/strawman/config/0.1": {
+            "include": "./docs/docs.json"
         }
     }
 }
