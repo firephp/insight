@@ -30,6 +30,7 @@ Third party:
 
 All data in headers (1)
 =======================
+{: id="header-only"}
 
 INFO: Only a limited amount of data can be sent in the response headers before it may get trimmed in transport to the client.
 This is a limitation of sending data in the response headers. If more data needs to be sent see [Secondary Request (2)](Protocols#secondary-request).

@@ -119,6 +119,10 @@
                     "path": "/Extending.md"
                 },
                 {
+                    "label": "Implementations",
+                    "path": "/Implementations.md"
+                },
+                {
                     "label": "Insight",
                     "path": "/Insight.md"
                 },
