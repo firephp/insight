@@ -16,6 +16,14 @@
         "test": {
             "location": "./",
             "module": "/scripts/test.js"
+        },
+        "docs": {
+            "locator": {
+                "id": "github.com/pinf/docs-js/"
+            },
+            "options": {
+                "packagePath": "../"
+            }
         }
     },
     "dependencies": [

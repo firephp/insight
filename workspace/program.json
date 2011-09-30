@@ -1,8 +1,13 @@
 {
     "boot": "workspace",
-    "extends": {
-        "location": "../program.packages.json"
-    },
+    "extends": [
+        {
+            "location": "https://raw.github.com/pinf/docs-js/v0.1.11/program.packages.json"
+        },
+        {
+            "location": "../program.packages.json"
+        }
+    ],
     "engine": [
         "node"
     ],
