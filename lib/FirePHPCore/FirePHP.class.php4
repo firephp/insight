@@ -3,6 +3,7 @@
 // - cadorn, Christoph Dorn <christoph@christophdorn.com>, Copyright 2007, New BSD License
 // - qbbr, Michael Day <manveru.alma@gmail.com>, Copyright 2008, New BSD License
 // - cadorn, Christoph Dorn <christoph@christophdorn.com>, Copyright 2011, MIT License
+// - kmcs, Timo Kiefer <timo.kiefer@kmcs.de>, Coipyright 2011, MIT License
 
 /**
  * *** BEGIN LICENSE BLOCK *****
@@ -629,9 +630,11 @@ class FirePHP {
           if(isset($trace[$i]['class'])
              && isset($trace[$i]['file'])
              && ($trace[$i]['class']=='FirePHP'
-                 || $trace[$i]['class']=='FB')
+                 || $trace[$i]['class']=='FB'
+                 || $trace[$i]['class']==__CLASS__)
              && (substr($this->_standardizePath($trace[$i]['file']),-18,18)=='FirePHPCore/fb.php'
-                 || substr($this->_standardizePath($trace[$i]['file']),-29,29)=='FirePHPCore/FirePHP.class.php')) {
+                 || substr($this->_standardizePath($trace[$i]['file']),-29,29)=='FirePHPCore/FirePHP.class.php'
+                 || $this->_standardizePath($trace[$i]['file'])==__FILE__)) {
             /* Skip - FB::trace(), FB::send(), $firephp->trace(), $firephp->fb() */
           } else
           if(isset($trace[$i]['class'])
