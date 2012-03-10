@@ -2,7 +2,7 @@
     "boot": "workspace",
     "extends": [
         {
-            "location": "https://raw.github.com/pinf/docs-js/v0.1.13/program.packages.json"
+            "location": "https://raw.github.com/pinf/docs-js/v0.1.16/program.declarations.json"
         },
         {
             "location": "../program.packages.json"
@@ -30,7 +30,7 @@
         },
         "github.com/pinf/modules-js/": {
             "locator": {
-                "archive": "https://github.com/pinf/modules-js/zipball/v0.1.14"
+                "archive": "https://github.com/pinf/modules-js/zipball/v0.1.18"
             }
         },
         "github.com/kriskowal/q/": {
