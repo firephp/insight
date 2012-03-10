@@ -108,6 +108,11 @@ Place the following at the **top** of the [bootstrap](http://devzone.zend.com/ar
 
 INFO: The `INSIGHT_CONFIG_PATH` must be an **absolute** path.
 
+INFO: Set `define('INSIGHT_DEBUG', true);` to troubleshoot installation.
+
+SECURITY: Do not keep `INSIGHT_DEBUG` enabled after installation was successful!
+
+
 If using the *phar* archive
 ---------------------------
 
