@@ -16,10 +16,13 @@ The [Insight](../Insight) configuration constants:
 
     CODE: {"lang": "php"}
     
+    // define('INSIGHT_DEBUG', true);  // Optional to troubleshoot install
     define('INSIGHT_IPS', '*');
     define('INSIGHT_AUTHKEYS', '<Authorization Key>');
     define('INSIGHT_PATHS', dirname(__FILE__));
     define('INSIGHT_SERVER_PATH', '/<ServerScript.php>');
+
+  * The `INSIGHT_DEBUG` constant enables debug mode used to troubleshoot installation.
 
   * The `INSIGHT_IPS` constant lists all client *IP Addresses* (or prefixes) that are allowed to access *FirePHP*.
 
@@ -34,6 +37,8 @@ The [Insight](../Insight) configuration constants:
     
     For example, if an application is hosted at **http://example.com/application/**, the `INSIGHT_SERVER_PATH` constant
     must be set to **/application/**.
+
+SECURITY: Do not keep `INSIGHT_DEBUG` enabled after installation was successful!
 
 SECURITY: Keep `INSIGHT_IPS` as specific as possible!
 

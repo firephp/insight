@@ -6,9 +6,10 @@ The [PINF JavaScript Loader](https://github.com/pinf/loader-js) is used to provi
 Documentation
 =============
 
-    commonjs -v https://github.com/pinf/server-js -v --port 8080 https://github.com/pinf/docs-js ../docs/
-    
+    commonjs --script docs ./ -v --port 8080
+
     open http://localhost:8080/
+
 
 
 Tests

@@ -20,11 +20,17 @@ Frameworks
 NOTICE: See [http://www.firephp.org/Wiki/](http://www.firephp.org/Wiki/) for all framework integrations until that information has been
 migrated to this page.
 
-### [Symfony 2](https://github.com/symfony/symfony/)
+### [FuelPHP](http://fuelphp.com/)
+
+  * [Fuel FirePHP Package](https://github.com/kriansa/fuel-firephp) (bundles the [FirePHPCore](Configuration/Traditional) library)
 
 *Symfony 2* has native *FirePHP* support via [Monolog](https://github.com/Seldaek/monolog) based on the [FirePHPCore](Configuration/Traditional) library.
 
-PLANNED: *FirePHP 1.0* support for *Monolog* is planned. See: [https://github.com/Seldaek/monolog/pull/30](https://github.com/Seldaek/monolog/pull/30)
+  * Tutorial: [Symfony2 AJAX Monolog FirePHP: The Simple Story](http://www.craftitonline.com/2011/08/symfony2-ajax-monolog-firephp-the-simple-story/)
+
+### [Symfony 2](https://github.com/symfony/symfony/)
+
+*Symfony 2* has native *FirePHP* support via [Monolog](https://github.com/Seldaek/monolog) based on the [FirePHPCore](Configuration/Traditional) library.
 
   * Tutorial: [Symfony2 AJAX Monolog FirePHP: The Simple Story](http://www.craftitonline.com/2011/08/symfony2-ajax-monolog-firephp-the-simple-story/)
 

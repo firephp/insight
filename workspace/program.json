@@ -1,8 +1,13 @@
 {
     "boot": "workspace",
-    "extends": {
-        "location": "../program.packages.json"
-    },
+    "extends": [
+        {
+            "location": "https://raw.github.com/pinf/docs-js/v0.1.16/program.declarations.json"
+        },
+        {
+            "location": "../program.packages.json"
+        }
+    ],
     "engine": [
         "node"
     ],
@@ -17,15 +22,15 @@
                 "location": "../"
             }
         },
-        "nodejs.org": {
-            "provider": "nodejs.org"
+        "nodejs.org/": {
+            "provider": "nodejs.org/"
         },
-        "pinf.org/loader": {
-            "provider": "pinf.org/loader"
+        "pinf.org/loader/": {
+            "provider": "pinf.org/loader/"
         },
         "github.com/pinf/modules-js/": {
             "locator": {
-                "archive": "https://github.com/pinf/modules-js/zipball/master"
+                "archive": "https://github.com/pinf/modules-js/zipball/v0.1.18"
             }
         },
         "github.com/kriskowal/q/": {
