@@ -3,7 +3,7 @@
 // - cadorn, Christoph Dorn <christoph@christophdorn.com>, Copyright 2007, New BSD License
 // - qbbr, Sokolov Innokenty <sokolov.innokenty@gmail.com>, Copyright 2011, New BSD License
 // - cadorn, Christoph Dorn <christoph@christophdorn.com>, Copyright 2011, MIT License
-// - kmcs, Timo Kiefer <timo.kiefer@kmcs.de>, Coipyright 2011, MIT License
+// - kmcs, Timo Kiefer <timo.kiefer@kmcs.de>, Copyright 2011, MIT License
 
 /**
  * *** BEGIN LICENSE BLOCK *****
@@ -238,6 +238,18 @@ class FirePHP {
      * @var object
      */
     protected $logToInsightConsole = null;
+    
+    /**
+     * sent byes
+     * @var integer
+     */
+    protected $sentBytes = 0;
+    
+    /**
+     * max sent bytes
+     * @var integer
+     */
+    protected $maxBytesToSent = 32000; //~32k
 
     /**
      * When the object gets serialized only include specific object members.
@@ -1059,6 +1071,10 @@ class FirePHP {
             $msg = '[' . $this->jsonEncode($msgMeta) . ',' . $this->jsonEncode($object, $skipFinalObjectEncode) . ']';
         }
         
+        if($this->maxBytesToSent < ($this->sentBytes + strlen($msg))) {
+        	return;
+        }
+        
         $parts = explode("\n", chunk_split($msg, 5000, "\n"));
 
         for ($i = 0; $i < count($parts); $i++) {
@@ -1084,6 +1100,8 @@ class FirePHP {
                 }
             }
         }
+        
+        $this->sentBytes += strlen($msg);
     
         $this->setHeader('X-Wf-1-Index', $this->messageIndex - 1);
     

@@ -3,7 +3,7 @@
 // - cadorn, Christoph Dorn <christoph@christophdorn.com>, Copyright 2007, New BSD License
 // - qbbr, Michael Day <manveru.alma@gmail.com>, Copyright 2008, New BSD License
 // - cadorn, Christoph Dorn <christoph@christophdorn.com>, Copyright 2011, MIT License
-// - kmcs, Timo Kiefer <timo.kiefer@kmcs.de>, Coipyright 2011, MIT License
+// - kmcs, Timo Kiefer <timo.kiefer@kmcs.de>, Copyright 2011, MIT License
 
 /**
  * *** BEGIN LICENSE BLOCK *****
@@ -171,6 +171,18 @@ class FirePHP {
    * @var boolean
    */
   var $enabled = true;
+  
+  /**
+   * sent byes
+   * @var integer
+   */
+  var $sentBytes = 0;
+  
+  /**
+   * max sent bytes
+   * @var integer
+   */
+  var $maxBytesToSent = 32000; //~32k
 
   /**
    * The object constructor
@@ -687,6 +699,10 @@ class FirePHP {
     	$msg = '['.$this->jsonEncode($msg_meta).','.$this->jsonEncode($Object, $skipFinalObjectEncode).']';
     }
     
+    if($this->maxBytesToSent < ($this->sentBytes + strlen($msg))) {
+    	return;
+    }
+    
     $parts = explode("\n",chunk_split($msg, 5000, "\n"));
 
     for( $i=0 ; $i<count($parts) ; $i++) {
@@ -712,6 +728,8 @@ class FirePHP {
             }
         }
     }
+    
+    $this->sentBytes += strlen($msg);
 
   	$this->setHeader('X-Wf-1-Index',$this->messageIndex-1);
 
