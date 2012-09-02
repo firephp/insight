@@ -3,7 +3,7 @@
 // - cadorn, Christoph Dorn <christoph@christophdorn.com>, Copyright 2007, New BSD License
 // - qbbr, Sokolov Innokenty <sokolov.innokenty@gmail.com>, Copyright 2011, New BSD License
 // - cadorn, Christoph Dorn <christoph@christophdorn.com>, Copyright 2011, MIT License
-// - kmcs, Timo Kiefer <timo.kiefer@kmcs.de>, Copyright 2011, MIT License
+// - kmcs, Timo Kiefer <timo.kiefer@kmcs.de>, Copyright 2012, MIT License
 
 /**
  * *** BEGIN LICENSE BLOCK *****
@@ -206,7 +206,8 @@ class FirePHP {
                                'maxObjectDepth' => 5,
                                'maxArrayDepth' => 5,
                                'useNativeJsonEncode' => true,
-                               'includeLineNumbers' => true);
+                               'includeLineNumbers' => true,
+                               'useGzipEncode' => false);
 
     /**
      * Filters used to exclude object members when encoding
@@ -724,6 +725,9 @@ class FirePHP {
         // Check if FirePHP is installed on client via User-Agent header
         if (@preg_match_all('/\sFirePHP\/([\.\d]*)\s?/si', $this->getUserAgent(), $m) &&
            version_compare($m[1][0], '0.0.6', '>=')) {
+            if(!version_compare($m[1][0], '0.8', '>=')) {
+                $this->setOption('useGzipEncode', false);
+            }
             return true;
         } else
         // Check if FirePHP is installed on client via X-FirePHP-Version header
@@ -1044,6 +1048,9 @@ class FirePHP {
         }
 
         $this->setHeader('X-Wf-Protocol-1', 'http://meta.wildfirehq.org/Protocol/JsonStream/0.2');
+        if($this->options['useGzipEncode'] && function_exists('gzencode')) {
+        	$this->setHeader('X-Wf-Option-gzip', 'true');
+        }
         $this->setHeader('X-Wf-1-Plugin-1', 'http://meta.firephp.org/Wildfire/Plugin/FirePHP/Library-FirePHPCore/' . self::VERSION);
      
         $structureIndex = 1;
@@ -1069,6 +1076,10 @@ class FirePHP {
                 $msgMeta['Line'] = $meta['line'];
             }
             $msg = '[' . $this->jsonEncode($msgMeta) . ',' . $this->jsonEncode($object, $skipFinalObjectEncode) . ']';
+        }
+        
+        if($this->options['useGzipEncode'] && function_exists('gzencode')) {
+        	$msg = base64_encode(gzencode($msg));
         }
         
         if($this->maxBytesToSent < ($this->sentBytes + strlen($msg))) {
