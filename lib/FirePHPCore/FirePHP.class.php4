@@ -500,7 +500,7 @@ class FirePHP {
     // Check if FirePHP is installed on client via User-Agent header
     if(@preg_match_all('/\sFirePHP\/([\.\d]*)\s?/si',$this->getUserAgent(),$m) &&
        version_compare($m[1][0],'0.0.6','>=')) {
-        if(!version_compare($m[1][0], '0.8', '>=')) {
+        if(!version_compare($m[1][0], '0.7', '>=')) {
             $this->setOption('useGzipEncode', false);
         }
       return true;
