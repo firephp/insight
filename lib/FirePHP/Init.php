@@ -52,7 +52,8 @@ function FirePHP__main() {
         // TODO: This may be removed in future?
         set_include_path(get_include_path() . PATH_SEPARATOR . dirname(dirname(__FILE__)));
 
-        spl_autoload_register('FirePHP__autoload');
+        // registers the firePHP autoloader on top of the stack (note third parameter)
+        spl_autoload_register('FirePHP__autoload', true, true);
 
         if (class_exists('FirePHP', false)) {
             throw new Exception("The FirePHP class must not be loaded manually!");
