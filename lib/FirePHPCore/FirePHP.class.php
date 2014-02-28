@@ -1294,7 +1294,7 @@ class FirePHP {
 
         $return = array();
     
-        if (is_resource($object)) {
+        if ($this->isResource($object)) {
     
             return '** ' . (string) $object . ' **';
     
@@ -1407,14 +1407,14 @@ class FirePHP {
                     $val['GLOBALS'] = '** Recursion (GLOBALS) **';
                 }
 
-                if (!$this->is_utf8($key)) {
+                if (!$this->isResource($key) && !$this->is_utf8($key)) {
                     $key = utf8_encode($key);
                 }
 
                 $return[$key] = $this->encodeObject($val, 1, $arrayDepth + 1, $maxDepth + 1);
             }
         } else {
-            if ($this->is_utf8($object)) {
+            if (!$this->isResource($object) && $this->is_utf8($object)) {
                 return $object;
             } else {
                 return utf8_encode($object);
@@ -1422,6 +1422,15 @@ class FirePHP {
         }
         return $return;
     }
+
+	/**
+	 * http://php.net/manual/en/function.is-resource.php#103942
+	 * @param $possibleResource
+	 * @return bool
+	 */
+	function isResource ($possibleResource) {
+		return !is_null(@get_resource_type($possibleResource));
+	}
 
     /**
      * Returns true if $string is valid UTF-8 and false otherwise.
