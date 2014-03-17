@@ -1,0 +1,146 @@
+{
+    "style": "./resources/style.css",
+    "menu": [
+        {
+            "label": "Welcome",
+            "path": "/Welcome.md"
+        },
+        {
+            "label": "About",
+            "path": "/About.md"
+        },
+        {
+            "label": "Features",
+            "path": "/Features.md"
+        },
+        {
+            "label": "Concepts",
+            "path": "/Concepts.md"
+        },
+        {
+            "label": "FirePHP 101",
+            "path": "/101.md"
+        },
+        {
+            "label": "Examples",
+            "path": "/Examples.md"
+        },
+        {
+            "label": "Quickstart",
+            "path": "/Quickstart.md"
+        },
+        {
+            "label": "Install",
+            "path": "/Install.md",
+            "children": [
+                {
+                    "label": "Overview",
+                    "path": "/Install.md"
+                },
+                {
+                    "label": "Clients",
+                    "path": "/Clients.md"
+                },
+                {
+                    "label": "Download",
+                    "path": "/Download.md"
+                },
+                {
+                    "label": "Traditional: FirePHPCore",
+                    "path": "/Configuration/Traditional.md"
+                },
+                {
+                    "label": "Configure: constants",
+                    "path": "/Configuration/Constants.md"
+                },
+                {
+                    "label": "Configure: files",
+                    "path": "/Configuration/Files.md"
+                },
+                {
+                    "label": "Authorizing",
+                    "path": "Authorizing.md"
+                },
+                {
+                    "label": "Advanced Configuration",
+                    "path": "/Configuration/Advanced.md"
+                }
+            ]
+        },
+        {
+            "label": "API Reference",
+            "path": "/API/Overview.md",
+            "children": [
+                {
+                    "label": "Overview",
+                    "path": "/API/Overview.md"
+                },
+                {
+                    "label": "Insight",
+                    "path": "/API/Insight.md"
+                },
+                {
+                    "label": "FirePHP",
+                    "path": "/API/FirePHP.md"
+                }
+            ]
+        },
+        {
+            "label": "Workflow",
+            "path": "/Workflow.md"
+        },
+        {
+            "label": "Tutorials",
+            "path": "/Tutorials.md"
+        },
+        {
+            "label": "Integrations",
+            "path": "/Integrations.md"
+        },
+        {
+            "label": "Troubleshooting",
+            "path": "/Troubleshooting.md"
+        },
+        {
+            "label": "FAQ",
+            "path": "/FAQ.md"
+        },
+        {
+            "label": "Open Source",
+            "path": "/OpenSource.md",
+            "children": [
+                {
+                    "label": "Support",
+                    "path": "/OpenSource.md",
+                    "bookmark": "support"
+                },
+                {
+                    "label": "Extend",
+                    "path": "/Extending.md"
+                },
+                {
+                    "label": "Implementations",
+                    "path": "/Implementations.md"
+                },
+                {
+                    "label": "Insight",
+                    "path": "/Insight.md"
+                },
+                {
+                    "label": "Protocols",
+                    "path": "/Protocols.md"
+                },
+                {
+                    "label": "Contribute",
+                    "path": "/OpenSource.md",
+                    "bookmark": "contribute"
+                },
+                {
+                    "label": "Community",
+                    "path": "/OpenSource.md",
+                    "bookmark": "community"
+                }
+            ]
+        }
+    ]
+}

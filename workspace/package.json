@@ -1,19 +1,36 @@
 {
-    "name": "firephp-core",
+    "name": "firephp",
     "engine": [
         "node"
     ],
     "main": "lib/project.js",
     "scripts": {
+        "import": {
+            "location": "./",
+            "module": "/scripts/import.js"
+        },
         "build": {
             "location": "./",
             "module": "/scripts/build.js"
         },
-        "publish": {
+        "test": {
             "location": "./",
-            "module": "/scripts/publish.js"
+            "module": "/scripts/test.js"
+        },
+        "docs": {
+            "locator": {
+                "id": "github.com/pinf/docs-js/"
+            },
+            "options": {
+                "packagePath": "../"
+            }
         }
     },
+    "dependencies": [
+        {
+            "id": "github.com/firephp/firephp/"
+        }
+    ],
     "mappings": {
         "nodejs": {
             "id": "nodejs.org/"

@@ -1,0 +1,19 @@
+{
+    "packages": {
+        "github.com/pinf/insight-php/": {
+            "locator": {
+                "archive": "https://github.com/pinf/insight-php/zipball/v0.1.4"
+            }
+        },
+        "github.com/firephp/firephp-core/": {
+            "locator": {
+                "archive": "https://github.com/firephp/firephp-core/zipball/v0.4.0rc3"
+            }
+        },
+        "github.com/pinf/wildfire-php/": {
+            "locator": {
+                "archive": "https://github.com/pinf/wildfire-php/zipball/v0.1.2"
+            }
+        }
+    }
+}

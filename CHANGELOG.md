@@ -1,171 +1,325 @@
 
 TODO:
 
-  * Fix code indenting in PHP 4 code
-  * Port maxDepth option to PHP 4 code
+// INTEGRATIONS
 
-2013-04-23 - Release Version: 0.4.0
+  * https://github.com/kemo/kohana-firephp just like https://github.com/Seldaek/monolog/pull/30
 
-  * No changes
+// LOW
 
-2011-06-22 - Release Version: 0.4.0rc3
+  * Bugfix: Trimmed headers - http://framework.zend.com/issues/browse/ZF-7664
+  * Enhancement: (cli) phpunit wrapper
+  * Enhancement: (cli) nice variable printing to terminal via ::to('terminal')
+  * Bugfix: Tests directories in zip distribution
 
-  * Build fixes
+// MEDIUM
 
-2011-06-20 - Release Version: 0.4.0rc1
+  * Enhancement: Port unit tests & get working properly via phpunit and logging to devcomp
+  * Enhancement: FirePHP 1.0 via pear.firephp.org
+  * Enhancement: Get FirePHP for Zend Server up to speed
+  * Enhancement: Support Firebug LITE
+  * Enhancement: pear package for easy install of FirePHP 1.0 on ZendServer
+  * Incorporate: http://till.klampaeckel.de/blog/archives/120-Tracking-PHP-errors.html
+  * Enhancement: Plugin library and example for http://vis.stanford.edu/protovis/
 
-  * (Issue 163) PHP5 class_exists() throws Exception without second parameter
-  * (Issue 166) Non-utf8 array values replaced with null
-  * Cleaned up code formatting [sokolov.innokenty@gmail.com]
-  * Ensure JSON keys are never NULL (due to NULL key in some arrays)
-  * Better UTF-8 encoding detection
-  * Code style cleanup (qbbr)
-  * Changed license to MIT
-  * Refactored project
+// HIGH
 
-2010-10-26 - Release Version: 0.3.2
+  * Bugfix: Do not send page context messages if receiver is not announced
+  * Change: Send headers at beginning of script to avoid need for output buffering
+  * Enhancement: Add more quickstart examples
+  * Bugfix: Recognize ../ paths as relative (not just ./)
+  * Enhancement: Set color and background color of messages
+  * Enhancement: Use of namespaces internally (released in parallel to non-namespaced release (FirePHP < 5.3))
 
-2010-10-12 - Release Version: 0.3.2rc6
+// TOP
 
-  * (Issue 154) getRequestHeader uses "getallheaders" even though it doesn't always exist. [25m]
-
-2010-10-09 - Release Version: 0.3.2rc5
-
-  * (Issue 153) FirePHP incorrectly double-encodes UTF8 when mbstring.func_overload is enabled
-
-2010-10-08 - Release Version: 0.3.2rc4
-
-  * Trigger upgrade message if part of FirePHP 1.0
-  * Removed FirePHP/Init.php inclusion logic and only load FirePHP.class.php if not already loaded
-
-2010-07-19 - Release Version: 0.3.2rc3
-
-  * Fixed FirePHP/Init.php inclusion logic
-
-2010-07-19 - Release Version: 0.3.2rc2
-
-  * (Issue 145) maxDepth option
-  * Changed maxObjectDepth and maxArrayDepth option defaults to 5
-  * Fixed code indentation
-
-2010-03-05 - Release Version: 0.3.2rc1
-
-  * (Issue 114) Allow options to be passed on to basic logging wrappers
-  * (Issue 122) Filter objectStack property of FirePHP class
-  * (Issue 123) registerErrorHandler(false) by default
-  * Added setOption() and getOption() methods
-  * (Issue 117) dump() method argument validation
-  * Started adding PHPUnit tests
-  * Some refactoring to support unit testing
-  * Deprecated setProcessorUrl() and setRendererUrl()
-  * Check User-Agent and X-FirePHP-Version header to detect FirePHP on client
-  * (Issue 135) FirePHP 0.4.3 with Firebug 1.5 changes user agent on the fly
-  * (Issue 112) Error Predefined Constants Not available for PHP 5.x versions
-
-2008-06-14 - Release Version: 0.3.1
-
-  * (Issue 108) ignore class name case in object filter
-
-2009-05-11 - Release Version: 0.3
-2009-05-01 - Release Version: 0.3.rc.1
-
-  * (Issue 90) PHP4 compatible version of FirePHPCore
-  * (Issue 98) Thrown exceptions don't send an HTTP 500 if the FirePHP exception handler is enabled
-  * (Issue 85) Support associative arrays in encodeTable method in FirePHP.class.php
-  * (Issue 66) Add a new getOptions() public method in API
-  * (Issue 82) Define $this->options outside of __construct
-  * (Issue 72) Message error if group name is null
-  * (Issue 68) registerErrorHandler() and registerExceptionHandler() should returns previous handlers defined
-  * (Issue 69) Add the missing register handler in the triumvirate (error, exception, assert)
-  * (Issue 75) [Error & Exception Handling] Option to not exit script execution
-  * (Issue 83) Exception handler can't throw exceptions
-  * (Issue 80) Auto/Pre collapsing groups AND Custom group row colors
-
-2008-11-09 - Release Version: 0.2.1
-
-  * (Issue 70) Problem when logging resources
-
-2008-10-21 - Release Version: 0.2.0
-
-  * Updated version to 0.2.0
-  * Switched to using __sleep instead of __wakeup
-  * Added support to exclude object members when encoding
-  * Add support to enable/disable logging
-
-2008-10-17 - Release Version: 0.2.b.8
+  * Enhancement: Proxy data from service calls to client
+  * Enhancement: Add new ->ok()-> message priority
+  * Enhancement: Add new ->details()-> method to log data to be displayed when log line expanded
+  * Change: Disable $firephp->registerErrorHandler(), registerExceptionHandler() and registerAssertionHandler() when using FirePHP 1.0 proper.
   
-  * New implementation for is_utf8()
-  * (Issue 55) maxObjectDepth Option not working correctly when using TABLE and EXCEPTION Type
-  * Bugfix for max[Object|Array]Depth when encoding nested array/object graphs
-  * Bugfix for FB::setOptions()
+  * Enhancement: Get and set application-wide and url specific on() for current user
+  * Enhancement: API for switching off error capturing
 
-2008-10-16 - Release Version: 0.2.b.7
+2011-07-22 - Release Version: 1.0b1rc1
 
-  * (Issue 45) Truncate dump when string have non utf8 cars
-  * (Issue 52) logging will not work when firephp object gets stored in the session.
+  * Refactor: Project structure, build and publishing scripts (via PINF now)
+  * Docs: Revised and many additions; published to http://docs.sourcemint.org/firephp.org/firephp/1/-docs/
 
-2008-10-16 - Release Version: 0.2.b.6
+2011-06-02 - Release Version: 0.0.0master1106021548
 
-  * (Issue 37) Display file and line information for each log message
-  * (Issue 51) Limit output of object graphs
-  * Bugfix for encoding object members set to NULL|false|''
+  * Enhancement: Dynamic class patching
+  * Bugfix: Always show ->on('FirePHP: Show all PHP Errors (except:)') and force errors to show if applicable
+  * Bugfix: Encoder options in package.json not taking effect
+  * Bugfix: Server paths accessibility verification fails if path does not exist
+  * Bugfix: Zend_Reflection_Docblock_Tag throws if '@name(..)' tag found
+  * Bugfix: FB::error() using deprecated method under the hood
+  * Refactor: Use autoloader instead of require() calls
+  * Refactor: Cleaner API instance logic
 
-2008-10-14 - Release Version: 0.2.b.5
+2011-05-30 - Release Version: 0.0.0master1105301313
 
-  * Updated JsonStream wildfire protocol to be more robust
-  * (Issue 33) PHP error notices running demos
-  * (Issue 48) Warning: ReflectionProperty::getValue() expects exactly 1 parameter, 0 given
+  * Enhancement: Conditional logging of all PHP errors
+  * Bugfix: Better file exclusion for own files
+  * Bugfix: Respect error_reporting() when logging errors to client
 
-2008-10-08 - Release Version: 0.2.b.4
+2011-05-26 - Release Version: 0.0.0master1105261453
 
-  * Bugfix for logging objects with recursion
+  * Bugfix: Better UTF-8 encoding detection
 
-2008-10-08 - Release Version: 0.2.b.3
+2011-05-26 - Release Version: 0.0.0master1105261436
 
-  * (Issue 43) Notice message in 0.2b2
-  * Added support for PHP's native json_encode() if available
-  * Revised object encoder to detect object recursion
+  * Enhancement: $console->show()
+  * Docs: Removed Engine API (now part of insight by default)
+  * Docs: Made DeveloperCompanion the preferred client
+  * Docs: Documented $console->show()
+  * Docs: Updated authorizing insight workflow
+  * Docs: Removed FirePHP_Plugin_FirePHP::trapProblems()
 
-2008-10-07 - Release Version: 0.2.b.2
+2011-05-24 - Release Version: 0.0.0master1105241153
 
-  * (Issue 28) Need solution for logging private and protected object variables
-  * Added trace() and table() aliases in FirePHP class
-  * (Issue 41) Use PHP doc in FirePHP
-  * (Issue 39) Static logging method for object oriented API
+  * Change: Escaping in protocol for pipes
+  * Change: More robust and hierarchical on()
+  * Bugfix: open/close for on()
+  * Reverse: (Bugfix) Ensure JSON keys are never NULL (due to NULL key in some arrays) for FirePHPCore
 
-2008-10-01 - Release Version: 0.2.b.1
+2011-05-16 - Release Version: 0.0.0master1105161440
 
-  * Added support for error and exception handling
-  * Updated min PHP version for PEAR package to 5.2
-  * Added version constant for library
-  * Gave server library it's own wildfire plugin namespace
-  * Migrated communication protocol to Wildfire JsonStream
-  * Added support for console groups using "group" and "groupEnd"
-  * Added support for log, info, warn and error logging aliases
-  * (Issue 29) problem with TRACE when using with error_handler
-  * (Issue 33) PHP error notices running demos
-  * (Issue 12) undefined index php notice
-  * Removed closing ?> php tags
-  * (Issue 13) the code in the fb() function has a second return statement that will never be reached
+  * Enhancement: Better deprecation notices
+  * Bugfix: Better filtering of get_included_files() to remove FirePHP related
+  * Bugfix: Assertion error logs two messages
+  * Bugfix: Ensure JSON keys are never NULL (due to NULL key in some arrays) for FirePHPCore
 
-2008-07-30 - Release Version: 0.1.1.3
+2011-05-13 - Release Version: 0.0.0master1105131750
 
-  * Include __className property in JSON string if variable was an object
-  * Bugfix - Mis-spelt "Exception" in JSON encoding code
+  * Bugfix: Default to 'log' priority without setting meta
+  * Change: Deprecated FirePHP_Plugin_FirePHP::trapProblems()
+  * Change: Deprecated FirePHP_Plugin_Engine::*
+  * Enhancement: Send included files for every request
 
-2008-06-13 - Release Version: 0.1.1.1
+2011-05-10 - Release Version: 0.0.0master1105101636
 
-  * Bugfix - Standardize windows paths in stack traces
-  * Bugfix - Display correct stack trace info in windows environments
-  * Bugfix - Check $_SERVER['HTTP_USER_AGENT'] before returning
+  * Change: Updated TestRunner descriptor [10m]
 
-2008-06-13 - Release Version: 0.1.1
+2011-05-10 - Release Version: 0.0.0master1105101539
 
-  * Added support for FirePHP::TRACE log style
-  * Changed license to New BSD License
+  * Bugfix: Exception if FIREPHP_ACTIVATED is set and ->on() is used [15m]
+  * Change: Do not send server URL all the time [5m]
+  * Enhancement: Send package info only if changed [20m]
 
-2008-06-06 - Release Version: 0.0.2
+2011-04-30 - Release Version: 0.0.0master1104301030
 
-  * Bugfix - Added usleep() to header writing loop to ensure unique index
-  * Bugfix - Ensure chunk_split does not generate trailing "\n" with empty data header
-  * Added support for FirePHP::TABLE log style
+  * Bugfix: INSIGHT_CONFIG_PATH detection and validation regression (was failing for minimal install) [10m]
+
+2011-03-11 - Release Version: 0.0.0master1103111119
+
+  * Enhancement: Better error messages when INSIGHT_DEBUG enabled [20m]
+  * Bugfix: Depth trimming [1h30m]
+
+2011-03-04 - Release Version: 0.0.0master1103041120
+
+  * Enhancement: Example APF-based (ajax.org) plugin (working but clunky - not usable) [6h]
+  * Enhancement: Example ExtJS-based plugin [30m]
+  * Bugfix: INSIGHT_CONFIG_PATH delimiter conflicting with windows drive separator ':'
+  * Bugfix: More reliable string encoding detection (Issue 166)
+
+2011-01-05 - Release Version: 0.0.0master1101051613
+
+  * Bugfix: Set second arg FALSE for class_exists() to bypass autoloaders [12m]
+  * Bugfix: Insight-specific global variable cleanup during initialization [3m]
+  * Enhancement: Specify credentials.json path via INSIGHT_CONFIG_PATH by suffixing with ':<PATH>' [12m]
+
+2010-12-16 - Release Version: 0.0.0master1012161631
+
+  * Bugfix: Use $_SERVER['HTTP_X_FORWARDED_FOR'] over $_SERVER['REMOTE_ADDR'] if set [5m]
+
+2010-12-14 - Release Version: 0.0.0master1012142034
+
+  * Enhancement: API to add quicklinks [27m]
+  * Enhancement: Pass custom trace to trace($title, $trace=null) [5m]
+  * Enhancement: Lazy loading of plugin files
+
+2010-12-09 - Release Version: 0.0.0master1012091510
+
+  * Enhancement: Validate characters for plugin aliases [6m]
+  * Enhancement: Validate characters for group names [3m]
+  * Refactor: Wildfire string payload parsing [5m]
+  * Enhancement: getInstance() for FirePHP::to("plugin") [37m]
+  * Change: Remove 'container' when registering plugins [48m]
+  * Enhancement: Throw error when registering a plugin more than once during a request [15m]
+  * Enhancement: Added ->notrim()-> and string.trim.length & string.trim.newlines options
+  * Enhancement: Added ->expand()-> for all messages
+  * Enhancement: New encoder.maxStringLength option [30m]
+  * Bugfix: Set FirePHP version dynamically for payload relay test (so upgrade message does not show) [2m]
+  * Enhancement: CLI cupport
+
+2010-12-03 - Release Version: 0.0.0master1012031707
+
+  * Enhancement: Ignore comments after // in authkeys in credentials.json [10m]
+  * Enhancement: Listener registration for payload [1h30m]
+  * Enhancement: Relaying of payloads [1h40m]
+  * Bugfix: Set FIREPHP_ACTIVATED constant to FALSE if not enabled [5m]
+
+2010-12-02 - Release Version: 0.0.0master1012021019
+
+  * Bugfix: Missing $ for variable causing E_NOTICE [2m]
+  * Bugfix: Notice: Undefined index: Wildfire/Channel.php on line 224 [2m]
+  * Bugfix: Fatal error when using FirePHP::plugin() with no client on PHP < 5.3 [2m]
+  * Enhancement: Insight-based page-top plugins
+
+2010-11-12 - Release Version: 0.0.0master1011120949
+
+  * Enhancement: Support $console->group('<name>', '<title>')->log('within group') [15m]
+  * Bugfix: Fix $console->label('<label>')->group('<name>', '<title>') and other fixes [8m]
+  * Enhancement: Config option to set path of credentials.json file [30m]
+  * Bugfix: Inclusive merging of credentials.json files [20m]
+  * Enhancement: Added FirePHP::plugin("firephp")->logVersion() [4m]
+  * Enhancement: Added FB::setLogToInsightConsole() [10m]
+  * Enhancement: FirePHP::plugin("firephp")->declareP() & p() [17m]
+  * Bugfix: Only send one triggerInspect message if multiple triggered [2m]
+
+2010-11-09 - Release Version: 0.0.0master1011090942
+
+  * Enhancement: $console->options(array('file' => <str>, 'line' => <int>))->... [20m]
+  * Enhancement: $console->option('encoder.trace.offsetAdjustment', <int>)->... [15m]
+  * Enhancement: $console->option('<name>') and $console->options() to get current options [10m]
+  * Bugfix: Remove 'new server library' message in console when using FirePHP/fb.php [24m]
+  * Enhancement: Use insight encoder and direct messages to page context if detected [20m]
+  * Enhancement: Throw exception when old FirePHP class is loaded from include path [5m]
+  * Bugfix: Mixed named and context based groups [20m]
+  * Bugfix: Write errors to error log (when trapping via engine plugin) if applicable [40m]
+  * Enhancement: Write exceptions to error log (when trapping via engine plugin) if applicable [6m]
+
+2010-10-25 - Release Version: 0.0.0master1010251614
+
+  * Docs: Log to page or request context based on drop-down
+  * Enhancement: Default request console to 'Console' tab if not specified [5m]
+  * Bugfix: Wildfire protocol parsing if protocol header is last
+  * Testing: PHP 5.1, 5.2 & 5.3 on siteground.com [2h10m]
+  * Bugfix: File sorting in TestRunner [9m]
+  * Enhancement: Update quickstart examples to log to Firebug Console [17m]
+  * Bugfix: Use Zend_Json when json_* not available [30m]
+
+2010-10-20 - Release Version: 0.0.0master1010201329
+
+  * Bugfix: Split depthNoLimit into depthNoLimit and lengthNoLimit [10m]
+  * Enhancement: Set options via insight API (->options()-> & ->options()->) and tests [42m]
+  * Enhancement: Added encoder.trace.maxLength option [23m]
+  * Enhancement: Exposed encoder.exception.traceMaxLength option [12m]
+  * Enhancement: Support -1 for encoder.max*Length options [9m]
+  * Enhancement: Support -1 for encoder.max*Depth options [3m]
+  * Bugfix: Fatal error if there is an initialization error [5m]
+
+2010-10-16 - Release Version: 0.0.0master1010160926
+
+  * Enhancement: Discard duplicate errors and trim backtraces for certain errors in FirePHP Engine plugin
+  * Enhancement: Upgrade message when using FirePHP Extension
+  * Bugfix: Do not initialize insight when using FirePHPCore/fb.php [10m]
+  * Enhancement: Provide procedural API via FirePHP/fb.php [5m]
+  * Docs: New upgrade page at http://upgrade.firephp.org/ [8h, +misc changes]
+  * Bugfix: FirePHP constants when deactivated
+  * Enhancement: Added Zend Framework example (shows if ZF is found)
+  * Bugfix: Use mb_detect_encoding() if available to check encoding of string objects
+  * Enhancement: Added Error Reporting levels to FirePHP_Plugin_FirePHP::recordEnvironment [37m]
+  * Bugfix: Use 'instanceof' instead of is_a() [4m]
+  * Bugfix: Use mb_detect_encoding() if available for is_utf8() [3m]
+  * Enhancement: Backwards compatibility for dump()
+  * Enhancement: Added support for $console->group('<Name>', '<Title>')->open();
+
+2010-10-01 - Release Version: 0.0.0master1010012104
+
+  * Enhancement: More detailed json parsing error messages [20m]
+  * Enhancement: Direct user to validate json files at http://www.jsonlint.com/ if parsing fails [8m]
+
+2010-09-29 - Release Version: 0.0.0master1009291749
+
+  * Enhancement: Implement FIREPHP_ACTIVATED constant to force-deactivate FirePHP or indicate if activated based on Init.php [10m]
+  * Enhancement: FirePHPCore compatibility test pages
+  * Enhancement: Log to firebug console for ::to('page') target
+  * Bugfix: Some of these tests don't work properly: http://pastebin.com/ZbYt0pwK [1h]
+
+2010-08-29 - Release Version: 0.0.0master1008291629
+
+  * Bugfix: Throw error (instead of silently failing) if no IP set
+  * Bugfix: Throw error if "*" is used and not the only authekey or IP
+  * Enhancement: Re-use FirePHP object when calling class when not enabled
+  * Bugfix: Replaced $_SERVER['SERVER_NAME'] with $_SERVER['HTTP_HOST']
+  * Bugfix: Always enable output buffering with ob_start() to disable flush() calls in code
+  * Bugfix: Handle ports properly for installation ID
+  * Enhancement: Added nolimit() to console API and support in default encoder
+  * Enhancement: More comprehensive recordEnvironment() for FirePHP plugin
+  * Bugfix: Suppress error logging for FirePHP engine plugin if @ used
+  * Bugfix: Avoid globals pollution during initialization
+
+2010-08-20 - Release Version: 0.0.0master1008201514
+
+  * Enhancement: Added recordEnvironment() to FirePHP engine
+  * Bugfix: Added INSIGHT_PATHS constant for minimal install method
+  * Enhancement: Added is() to console API
+  * Enhancement: Added FeedCache example
+
+2010-08-19 - Release Version: 0.0.0master1008191622
+
+  * Enhancement: Minimal install method
+  * Enhancement: Added FirePHP engine
+  * Enhancement: Added trapProblems() to FirePHP engine
+
+2010-08-03 - Release Version: 0.0.0master1008031622
+
+  * Enhancement: Show payload in tests
+  * Bugfix: Header case when matching
+  * Optimization: Minimal bootstrap with additional loading of files only if needed
+  * Bugfix: Use client key when persisting conditional logging state for request
+
+2010-07-28 - Release Version: 0.0.0master1007282031
+
+  * Enhancement: Implemented selective logging API via $console->on()
+  * Change: Some internal refactoring and various changes
+  * Bugfix: Don't die if json_last_error() is missing (applicable in some environments)
+  * Bugfix: If getallheaders() is missing (applicable in some environments) get request headers from $_SERVER
+  * Bugfix: Don't use __DIR__ as it is missing in some environments
+
+2010-07-27 - Release Version: 0.0.0master1007271007
+
+  * Bugfix: Cache path creation
+
+2010-07-26 - Release Version: 0.0.0master1007261803
+
+  * Bugfix: PINF-based cache path verification
+
+2010-07-26 - Release Version: 0.0.0master1007261732
+
+  * Change: PHP version check: 5.1+
+  * Enhancement: More advanced automatic cache path detection
+  * Enhancement: Added cache.path config option
+  * Enhancement: Improved error handling
+  * Bugfix: Multiple protocol headers
+  * Enhancement: Redirect traditional API calls to insight via setLogToInsightConsole()
+
+2010-07-23 - Release Version: 0.0.0master1007231623
+
+  * Enhancement: Initial implementation for $console->on()
+  * Bugfix: Compensate for magic_quotes_gpc when applicable
+
+2010-07-22 - Release Version: 0.0.0master1007221829
+
+  * Bugfix: Enable output buffering if ob_get_level()<=1
+  * Added redirect test for traditional and insight API
+
+2010-07-17 - Release Version: 0.0.0master1007171039
+
+  * Bugfix: Append libs to include path when calling FirePHP/Init.php
+
+2010-07-16 - Release Version: 0.0.0master1007161350
+
+  * Enhancement: Support $console->group()->open() (i.e. without specifying group name.)
+  * Enhancement: Added INSIGHT_DEBUG constant and debug messages
+  * Enhancement: Autoflush after initial batch flush
+  * Enhancement: Added maxArrayLength to insight encoder
+  * Enhancement: Added maxObjectLength to insight encoder
+  * Enhancement: Added support for insight encoder options in package.json
+  * Enhancement: Send server library version to client
+
+2010-06-21 - Release Version: 0.0.0master1006211545
+
+  * Public BETA Preview

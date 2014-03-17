@@ -1,12 +1,25 @@
 {
-    "uid": "https://github.com/firephp/firephp-core/",
-    "name": "firephp-core",
-    "version": "0.4.0",
-    "label": "FirePHP Server Library",
+    "uid": "https://github.com/firephp/firephp/",
+    "name": "firephp",
+    "label": "FirePHP 1.0",
+    "description": "FirePHP 1.0 Server Library.",
     "repositories": [
         {
             "type": "git",
-            "url": "git://github.com/firephp/firephp-core.git"
+            "url": "git://github.com/firephp/firephp.git"
+        }
+    ],
+    "icons": {
+        "64x64": "/resources/images/FirePHP_64.png"
+    },
+    "licenses": [
+        {
+            "scope": "code",
+            "type": "MIT"
+        },
+        {
+            "scope": "docs",
+            "type": "CC-BY-NC-SA"
         }
     ],
     "maintainers": [
@@ -27,17 +40,38 @@
             "alias": {
                 "github": "cadorn"
             }
-        },
-        {
-            "name": "Michael Day",
-            "email": "manveru.alma@gmail.com"
-        },
-        {
-            "name": "Sokolov Innokenty",
-            "email": "sokolov.innokenty@gmail.com",
-            "alias": {
-                "github": "qbbr"
-            }
         }
-    ]
+    ],
+    "dependencies": [
+        {
+            "id": "github.com/pinf/insight-php/"
+        },
+        {
+            "id": "github.com/firephp/firephp-core/"
+        }
+    ],
+    "implements": {
+        "github.com/pinf/core-js/-meta/strawman/bundles/0.1": {
+            "lib.zip": {
+                "locator": {
+                    "location": "./build/lib.zip"
+                },
+                "scope": "lib",
+                "label": "ZIP Archive",
+                "contentType": "application/zip"
+            },
+            "lib.phar": {
+                "locator": {
+                    "location": "./build/lib.phar"
+                },
+                "scope": "lib",
+                "label": "PHAR Archive",
+                "contentType": "application/zip",
+                "suffix": ".phar"
+            }
+        },
+        "github.com/pinf/docs-js/-meta/strawman/config/0.1": {
+            "include": "./docs/docs.json"
+        }
+    }
 }

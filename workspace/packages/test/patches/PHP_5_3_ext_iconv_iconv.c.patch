@@ -1,0 +1,11 @@
+--- iconv.c	2010-12-31 18:19:59.000000000 -0800
++++ iconv.c.new	2011-07-15 10:51:41.000000000 -0700
+@@ -183,7 +183,7 @@
+ /* }}} */
+ 
+ #if defined(HAVE_LIBICONV) && defined(ICONV_ALIASED_LIBICONV)
+-#define iconv libiconv
++#define iconv iconv
+ #endif
+ 
+ /* {{{ typedef enum php_iconv_enc_scheme_t */

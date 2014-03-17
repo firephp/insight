@@ -1,0 +1,7 @@
+{
+    "Firefox": "http://download.mozilla.org/?product=firefox-%%VERSION%%&os=osx&lang=en-US",
+    "Firebug": "http://getfirebug.com/releases/firebug/1.7/firebug-%%VERSION%%.xpi",
+    "FirePHPCore": "http://www.firephp.org/DownloadRelease/FirePHPLibrary-FirePHPCore-%%VERSION%%",
+    "FirePHPExtension": "http://www.firephp.org/DownloadRelease/FirePHP-FirefoxExtension-%%VERSION%%",
+    "ZendFramework": "http://framework.zend.com/releases/ZendFramework-%%VERSION%%/ZendFramework-%%VERSION%%-minimal.zip"
+}

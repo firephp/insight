@@ -1,0 +1,15 @@
+{
+    "extends": {
+        "location": "../../../workspace/packages/test/program.json"
+    },
+    "implements": {
+        "github.com/firephp/firephp/workspace/packages/test/0.1": {
+            "dependencies": {
+                "Firefox": "5",
+                "Firebug": "1.7",
+                "FirePHPExtension": "0.5",
+                "FirePHPCore": "0.3"
+            }
+        }
+    }
+}

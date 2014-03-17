@@ -11,6 +11,11 @@ var pkgPath = FILE.dirname(FILE.dirname(FILE.dirname(module.id))),
 	tplPath = pkgPath + "/workspace/tpl",
 	version = false;
 
+exports.getPackagePath = function()
+{
+	return pkgPath;
+}
+
 exports.getBuildPath = function()
 {
 	return buildPath;
@@ -18,7 +23,6 @@ exports.getBuildPath = function()
 
 exports.main = function()
 {
-	
 	SYSTEM.exec("rm -Rf " + buildPath, function()
 	{
 		FILE.mkdirs(buildPath, 0775);
@@ -33,7 +37,7 @@ exports.main = function()
 			
 			buildZipArchive(function()
 			{
-				buildPEARArchive(function()
+				buildPharArchive(function()
 				{
 					done();
 				});
@@ -49,19 +53,17 @@ exports.main = function()
 
 function buildZipArchive(callback)
 {
-	var targetBasePath = buildPath + "/FirePHPCore-" + version;
+	var targetBasePath = buildPath + "/firephp-" + version;
 
 	FILE.mkdirs(targetBasePath, 0775);
 
 	SYSTEM.exec("rsync -r --copy-links --exclude \"- .DS_Store\" --exclude \"- .git/\" --exclude \"- .tmp_*\" " + pkgPath + "/lib " + targetBasePath, function()
 	{
+		replaceVariablesInFile(targetBasePath + "/lib/FirePHP/Init.php");
 		replaceVariablesInFile(targetBasePath + "/lib/FirePHPCore/FirePHP.class.php");
 		replaceVariablesInFile(targetBasePath + "/lib/FirePHPCore/FirePHP.class.php4");
-
-		SYSTEM.exec("cp -Rf " + pkgPath + "/examples " + targetBasePath, function()
-		{
-			next1();
-		});
+		
+		next1();
 	});		
 	
 	function next1()
@@ -73,16 +75,12 @@ function buildZipArchive(callback)
 		var content = FILE.read(tplPath + "/license.tpl.md");
 		FILE.write(targetBasePath + "/LICENSE.md", content);
 
-		FILE.write(buildPath + "/info.json", JSON.encode({
-			version: version
-		}));
-
 		next2();
 	}
 
 	function next2()
 	{
-		SYSTEM.exec("cd " + buildPath + " ; zip -vr FirePHPCore-" + version + ".zip FirePHPCore-" + version, function(stdout)
+		SYSTEM.exec("cd " + buildPath + " ; zip -vr lib.zip firephp-" + version, function(stdout)
 		{
 			console.log(stdout);
 
@@ -91,44 +89,49 @@ function buildZipArchive(callback)
 	}
 }
 
-function buildPEARArchive(callback)
+function buildPharArchive(callback)
 {
-	var targetBasePath = buildPath + "/pear";
+	var targetBasePath = buildPath + "/phar",
+		pharName = "firephp";
 
 	FILE.mkdirs(targetBasePath, 0775);
 
-	SYSTEM.exec("rsync -r --copy-links --exclude \"- .DS_Store\" --exclude \"- .git/\" --exclude \"- .tmp_*\" " + pkgPath + "/lib/FirePHPCore/* " + targetBasePath, function()
+	SYSTEM.exec("rsync -r --copy-links --exclude \"- .DS_Store\" --exclude \"- .git/\" --exclude \"- .tmp_*\" " + pkgPath + "/lib " + targetBasePath, function()
 	{
-		replaceVariablesInFile(targetBasePath + "/FirePHP.class.php");
-		replaceVariablesInFile(targetBasePath + "/FirePHP.class.php4");
-
+		replaceVariablesInFile(targetBasePath + "/lib/FirePHP/Init.php");
+		replaceVariablesInFile(targetBasePath + "/lib/FirePHPCore/FirePHP.class.php");
+		replaceVariablesInFile(targetBasePath + "/lib/FirePHPCore/FirePHP.class.php4");
+		
 		next1();
 	});		
 
 	function next1()
 	{
-		var content = FILE.read(tplPath + "/pear.package.tpl.xml");
-
-		var date = new Date();
-		content = content.replace(/%%DATE%%/g, date.getFullYear() + "-" + UTIL.padBegin(date.getMonth()+1, 2, "0") + "-" + date.getDate());
-		content = content.replace(/%%VERSION%%/g, version);
-		content = content.replace(/%%STABILITY%%/g, "stable");
-
-		FILE.write(targetBasePath + "/package.xml", content);
+	    // Write phar setup file and packaging script
+	    // @see http://blog.calevans.com/2009/07/19/lessons-in-phar/
 		
-		next2();
-	}
+		FILE.write(targetBasePath + "/stub.php", [
+	        "<?php",
+	        "__HALT_COMPILER();"
+	    ].join("\n"));
 
-	function next2()
-	{
-		SYSTEM.exec("pear channel-discover pear.firephp.org", function(stdout)
+		FILE.write(targetBasePath + "/create-phar.php", [
+	        "<?php",
+	        "$phar = new Phar('" + pharName + "-" + version + ".phar" + "', 0, '" + pharName + ".phar" + "');",
+	        "$phar->compressFiles(Phar::GZ);",
+	        "$phar->setSignatureAlgorithm(Phar::SHA1);",
+	        "$phar->buildFromDirectory('" + targetBasePath + "/lib" + "');",
+	        "$phar->setStub($phar->createDefaultStub('stub.php'));"
+	    ].join("\n"));
+
+		SYSTEM.exec("cd " + targetBasePath + " ; php create-phar.php", function(stdout, stderr)
 		{
 			console.log(stdout);
-
-			SYSTEM.exec("cd " + targetBasePath + "; pear package package.xml", function(stdout)
+			
+			console.log(stderr);
+			
+			SYSTEM.exec("mv " + targetBasePath + "/" + pharName + "-" + version + ".phar " + buildPath + "/lib.phar", function(stdout, stderr)
 			{
-				console.log(stdout);
-
 				callback();
 			});
 		});		

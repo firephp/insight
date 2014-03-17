@@ -1,26 +1,19 @@
-FirePHPCore
+FirePHP 1.0
 ===========
 
-**Status: stable**
+**Status: dev**
 
 > **FirePHP is an advanced logging system that can display PHP variables in the browser as an application is navigated.**
 > All communication is out of band to the application meaning that the logging data will not interfere with the normal functioning of the application.
 
-This project contains the *FirePHPCore* PHP server library and provides a development environment (see `./workspace/`) for working on *FirePHPCore*.
-
+This project contains the [FirePHP 1.0](http://docs.sourcemint.org/firephp.org/firephp/1) PHP server library 
+and provides a development environment  (see `./workspace/`) for working on *FirePHP*.
 
 Usage
 =====
 
-See  [Install/Traditional: FirePHPCore](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/Configuration/Traditional) in the
+See  [Install](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/Install) in the
 [FirePHP 1.0 Documentation](http://docs.sourcemint.org/firephp.org/firephp/1/-docs/).
-
-
-Testing
-=======
-
-    cd tests
-    phpunit .
 
 
 Support & Feedback

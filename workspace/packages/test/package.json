@@ -1,0 +1,25 @@
+{
+    "uid": "https://github.com/firephp/firephp/workspace/packages/test/",
+    "main": "main.js",
+    "scripts": {
+        "setup": {
+            "location": "./",
+            "module": "/scripts/setup.js"
+        },
+        "teardown": {
+            "location": "./",
+            "module": "/scripts/teardown.js"
+        }
+    },
+    "mappings": {
+        "nodejs": {
+            "id": "nodejs.org"
+        },
+        "pinf": {
+            "id": "pinf.org/loader"
+        },
+        "modules": {
+            "id": "github.com/pinf/modules-js/"
+        }
+    }
+}
