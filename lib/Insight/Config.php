@@ -4,9 +4,9 @@ class Insight_Config
 {
     const PACKAGE_META_URI = 'http://registry.pinf.org/cadorn.org/insight/@meta/package/0';
     const CONFIG_META_URI = 'http://registry.pinf.org/cadorn.org/insight/@meta/config/0';
-    
+
     protected $defaultConfig;
-    
+
     protected $file = null;
 
     /**
@@ -187,7 +187,7 @@ class Insight_Config
     }
 
     private function normalizeConfig($config) {
-        
+
         if(isset($config['implements'])) {
             foreach( $config['implements'] as $key => $info ) {
                 if(substr($key,0,5)!='http:') {
@@ -202,7 +202,7 @@ class Insight_Config
                 foreach( $config['implements'][self::CONFIG_META_URI][$prop1] as $key => $info ) {
                     foreach(array('implements', 'uid') as $prop2) {
                         if(isset($info[$prop2]) && substr($info[$prop2],0,5)!='http:') {
-                            $config[$prop2][self::CONFIG_META_URI][$prop1][$key][$prop2] = 
+                            $config[$prop2][self::CONFIG_META_URI][$prop1][$key][$prop2] =
                                 'http://registry.pinf.org/' . $config['implements'][self::CONFIG_META_URI][$prop1][$key][$prop2];
                         }
                     }
@@ -280,10 +280,10 @@ class Insight_Config
                     }
                 }
             }
-        }        
+        }
         return $config;
     }
-    
+
     private function validate() {
 
         if(!isset($this->config['uid'])) {
@@ -294,9 +294,9 @@ class Insight_Config
             $config = $this->config['implements'][self::PACKAGE_META_URI];
             // TODO: validate
         }
-        
+
         $config = $this->config['implements'][self::CONFIG_META_URI];
-        
+
         $CONFIG_META_URI = str_replace("http://registry.pinf.org/", "", self::CONFIG_META_URI);
 
         if(isset($config['credentialsPath'])) {
@@ -304,6 +304,7 @@ class Insight_Config
                 throw new Exception('"credentialsPath" config property does not refer to an existing file set for ' . $CONFIG_META_URI . ' in ' . $this->file . ' or other ([package|credentials][.local].json) config files');
             }
         }
+
         if(!isset($config['allow'])) {
             throw new Exception('"allow" config property not set for ' . $CONFIG_META_URI . ' in ' . $this->file . ' or other ([package|credentials][.local].json) config files');
         }
@@ -335,7 +336,7 @@ class Insight_Config
         }
         if(!isset($config['server']['path'])) {
             throw new Exception('"server.path" config property not set for ' . $CONFIG_META_URI . ' in ' . $this->file . ' or other ([package|credentials][.local].json) config files');
-        } else   
+        } else
         if(substr($config['server']['path'], 0, 1)!="/" && substr($config['server']['path'], 0, 2)!="./") {
             throw new Exception('"server.path" config property must begin with a forward slash for ' . $CONFIG_META_URI . ' in ' . $this->file . ' or other ([package|credentials][.local].json) config files');
         }
@@ -355,12 +356,12 @@ class Insight_Config
             throw new Exception('"cache.path" [' . $config['cache']['path'] . '] does not exist for ' . $CONFIG_META_URI . ' in ' . $this->file . ' or other ([package|credentials][.local].json) config files');
         }
     }
-    
+
     public function getPackageId() {
         return $this->config['uid'];
     }
 
-    public function getPackageInfo() {        
+    public function getPackageInfo() {
         $info = array('links'=>array('quick'=>array()));
         if(isset($this->config['name'])) {
             $info['name'] = $this->config['name'];
@@ -379,7 +380,7 @@ class Insight_Config
         }
         return $info;
     }
-    
+
     public function getServerInfo() {
         if(!isset($this->config['implements'][self::CONFIG_META_URI]['server'])) {
             return false;
@@ -407,7 +408,7 @@ class Insight_Config
         }
         return $this->config['implements'][self::CONFIG_META_URI]['targets'];
     }
-    
+
     public function getRenderers() {
         if(!isset($this->config['implements'][self::CONFIG_META_URI]['renderers'])) {
             return false;
@@ -446,7 +447,7 @@ class Insight_Config
     public function getIPs() {
         return $this->config['implements'][self::CONFIG_META_URI]['allow']['ips'];
     }
-    
+
     public function getEncoderOptions() {
         if(!isset($this->config['implements'][self::CONFIG_META_URI]['encoder'])) {
             return array();

@@ -3,9 +3,9 @@
 class Insight_Helper
 {
     private static $instance = null;
-    
+
     private static $senderLibrary = null;
-    
+
     private $listeners = array();
 
     private $request = null;
@@ -14,14 +14,14 @@ class Insight_Helper
     private $channel = null;
     private $dispatcher = null;
     private $announceReceiver = null;
-        
+
     private $authorized = false;
     private $enabled = false;
     private $forceEnabled = false;
 
     private $apis = array();
     private $plugins = array();
-    
+
     private static $swallowDebugMessages = false;
 
     public static function autoload($class)
@@ -119,7 +119,7 @@ class Insight_Helper
 
                 // always enable insight for now
                 self::$instance->setEnabled(true);
-    
+
                 // flush on shutdown
                 register_shutdown_function('Insight_Helper__shutdown');
 
@@ -136,7 +136,7 @@ class Insight_Helper
                 self::$instance->server = new Insight_Server();
                 self::$instance->server->setHelper(self::$instance);
                 self::$instance->server->setConfig($config);
-    
+
                 // NOTE: This may stop script execution if a transport data request is detected
                 if($transport) {
                     $transport->setServer(self::$instance->server);
@@ -151,7 +151,7 @@ class Insight_Helper
                     self::$swallowDebugMessages = true;
                     exit;
                 }
-                
+
                 // initialize request object
                 self::$instance->request = new Insight_Request();
                 self::$instance->request->setConfig($config);
@@ -261,7 +261,7 @@ class Insight_Helper
         }
         return self::$instance;
     }
-    
+
     private function setConfig($config) {
         $this->config = $config;
     }
@@ -269,7 +269,7 @@ class Insight_Helper
     public function getConfig() {
         return $this->config;
     }
-    
+
     public function getRequest() {
         return $this->request;
     }
@@ -491,7 +491,7 @@ class Insight_Helper
     public static function getNullMessage() {
         return new Insight_Helper__NullMessage();
     }
-    
+
     public function relayPayload($payload) {
         if(!$this->getEnabled()) {
             return;
@@ -535,7 +535,7 @@ function Insight_Helper__shutdown() {
     if(!$insight->getEnabled()) {
         return;
     }
-    
+
     // call shutdown for all APIs
     $apis = $insight->getApis();
     if($apis) {
