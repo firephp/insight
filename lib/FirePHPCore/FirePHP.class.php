@@ -3,6 +3,7 @@
 // - cadorn, Christoph Dorn <christoph@christophdorn.com>, Copyright 2007, New BSD License
 // - qbbr, Sokolov Innokenty <sokolov.innokenty@gmail.com>, Copyright 2011, New BSD License
 // - cadorn, Christoph Dorn <christoph@christophdorn.com>, Copyright 2011, MIT License
+// - kmcs, Timo Kiefer <timo.kiefer@kmcs.de>, Copyright 2012, MIT License
 
 /**
  * *** BEGIN LICENSE BLOCK *****
@@ -205,7 +206,8 @@ class FirePHP {
                                'maxObjectDepth' => 5,
                                'maxArrayDepth' => 5,
                                'useNativeJsonEncode' => true,
-                               'includeLineNumbers' => true);
+                               'includeLineNumbers' => true,
+                               'useGzipEncode' => false);
 
     /**
      * Filters used to exclude object members when encoding
@@ -237,6 +239,18 @@ class FirePHP {
      * @var object
      */
     protected $logToInsightConsole = null;
+    
+    /**
+     * sent byes
+     * @var integer
+     */
+    protected $sentBytes = 0;
+    
+    /**
+     * max sent bytes
+     * @var integer
+     */
+    protected $maxBytesToSent = 32000; //~32k
 
     /**
      * When the object gets serialized only include specific object members.
@@ -711,6 +725,9 @@ class FirePHP {
         // Check if FirePHP is installed on client via User-Agent header
         if (@preg_match_all('/\sFirePHP\/([\.\d]*)\s?/si', $this->getUserAgent(), $m) &&
            version_compare($m[1][0], '0.0.6', '>=')) {
+            if(!version_compare($m[1][0], '0.7', '>=')) {
+                $this->setOption('useGzipEncode', false);
+            }
             return true;
         } else
         // Check if FirePHP is installed on client via X-FirePHP-Version header
@@ -1002,9 +1019,11 @@ class FirePHP {
                     if (isset($trace[$i]['class'])
                        && isset($trace[$i]['file'])
                        && ($trace[$i]['class'] == 'FirePHP'
-                           || $trace[$i]['class'] == 'FB')
+                           || $trace[$i]['class'] == 'FB'
+                           || $trace[$i]['class'] == __CLASS__)
                        && (substr($this->_standardizePath($trace[$i]['file']), -18, 18) == 'FirePHPCore/fb.php'
-                           || substr($this->_standardizePath($trace[$i]['file']), -29, 29) == 'FirePHPCore/FirePHP.class.php')) {
+                           || substr($this->_standardizePath($trace[$i]['file']), -29, 29) == 'FirePHPCore/FirePHP.class.php'
+                           || $this->_standardizePath($trace[$i]['file']) == __FILE__)) {
                         /* Skip - FB::trace(), FB::send(), $firephp->trace(), $firephp->fb() */
                     } else
                     if (isset($trace[$i]['class'])
@@ -1029,6 +1048,9 @@ class FirePHP {
         }
 
         $this->setHeader('X-Wf-Protocol-1', 'http://meta.wildfirehq.org/Protocol/JsonStream/0.2');
+        if($this->options['useGzipEncode'] && function_exists('gzencode')) {
+        	$this->setHeader('X-Wf-Option-gzip', 'true');
+        }
         $this->setHeader('X-Wf-1-Plugin-1', 'http://meta.firephp.org/Wildfire/Plugin/FirePHP/Library-FirePHPCore/' . self::VERSION);
      
         $structureIndex = 1;
@@ -1056,6 +1078,14 @@ class FirePHP {
             $msg = '[' . $this->jsonEncode($msgMeta) . ',' . $this->jsonEncode($object, $skipFinalObjectEncode) . ']';
         }
         
+        if($this->options['useGzipEncode'] && function_exists('gzencode')) {
+        	$msg = base64_encode(gzencode($msg));
+        }
+        
+        if($this->maxBytesToSent < ($this->sentBytes + strlen($msg))) {
+        	return;
+        }
+        
         $parts = explode("\n", chunk_split($msg, 5000, "\n"));
 
         for ($i = 0; $i < count($parts); $i++) {
@@ -1081,6 +1111,8 @@ class FirePHP {
                 }
             }
         }
+        
+        $this->sentBytes += strlen($msg);
     
         $this->setHeader('X-Wf-1-Index', $this->messageIndex - 1);
     
